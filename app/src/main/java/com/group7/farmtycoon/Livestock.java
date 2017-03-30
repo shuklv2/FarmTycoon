@@ -6,13 +6,13 @@ package com.group7.farmtycoon;
 public abstract class Livestock {
 
     private boolean state;
-    private int quantity = 0;
+    private int quantity;
     private int hunger;
     private int resources;
 
     public Livestock(){
         this.state = true;
-        this.quantity++;
+        this.quantity = 0;
         this.hunger = 100;
         this.resources = 0;
     }
