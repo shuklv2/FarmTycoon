@@ -5,24 +5,23 @@ package com.group7.farmtycoon;
  */
 public class Chicken extends Livestock {
 
-    private int eggs;
 
     public Chicken(){
-        this.eggs = 0;
+        this.setResources(0);
         this.setHunger(100);
         this.setState(true);
         this.setQuantity(1);
     }
 
     public int getEggs(){
-        return this.eggs;
+        return this.getResources();
     }
 
     public void setEggs(int eggs){
-        this.eggs = eggs;
+        this.setResources(eggs);
     }
 
     public void collectEggs(){
-        this.setEggs(0);
+        this.setResources(0);
     }
 }

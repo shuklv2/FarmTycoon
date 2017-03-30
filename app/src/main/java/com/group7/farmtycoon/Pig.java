@@ -9,5 +9,6 @@ public class Pig extends Livestock {
         this.setState(true);
         this.setQuantity(1);
         this.setHunger(100);
+        this.setResources(0);
     }
 }

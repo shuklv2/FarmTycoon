@@ -5,25 +5,24 @@ package com.group7.farmtycoon;
  */
 public class Cow extends Livestock {
 
-    private int milk;
 
     public Cow(){
-        this.milk = 0;
+        this.setResources(0);
         this.setHunger(100);
         this.setState(true);
         this.setQuantity(1);
     }
 
     public int getMilk(){
-        return this.milk;
+        return this.getResources();
     }
 
     public void collectMilk(){
-        this.setMilk(0);
+        this.setResources(0);
     }
 
     public void setMilk(int milk){
-        this.milk = milk;
+        this.setResources(milk);
     }
 
 
