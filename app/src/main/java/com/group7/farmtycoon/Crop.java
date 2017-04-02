@@ -25,7 +25,7 @@ public abstract class Crop {
     private int noWaterTimer=0;
     private boolean startNoWater=false;
     private boolean noWater=false;
-    private int starveDMG;
+    private int starveDMG =1;
     //how many of this crop is there
     private int quantity=0;
 
@@ -38,6 +38,8 @@ public abstract class Crop {
     //if crop can be harvested
     private boolean harvestable;
 
+
+    private boolean fertilized=false;
     public Crop(){
 
     }
@@ -59,7 +61,6 @@ public abstract class Crop {
         }
 
         if(noWater){
-
             takeDamage(starveDMG);
         }
         else{
@@ -70,7 +71,8 @@ public abstract class Crop {
             }
         }
         //check if crop is harvestable
-        if(life == HP){
+        //with fertilizer, grows twice as fast
+        if(life == HP || (fertilized && life == HP/2)){
             harvestable=true;
         }
 
@@ -91,7 +93,7 @@ public abstract class Crop {
     }
 
     //watering crops
-    public void water(int amount){
+    public void water(){
         watered=true;
     }
 
@@ -106,7 +108,10 @@ public abstract class Crop {
         quantity = 0;
         watered=false;
         harvestable=false;
+        fertilized=false;
     }
+
+    public void fertilize(){ fertilized =true;}
 
     //kill # of crops
     public void destroy(int amount){
@@ -116,9 +121,14 @@ public abstract class Crop {
             harvestable=false;
             watered=false;
             quantity =0;
+            fertilized =false;
         }
         life = 0;
 
+    }
+
+    public void killAll(){
+        destroy(quantity);
     }
 
     //crops take damage to life
@@ -126,7 +136,7 @@ public abstract class Crop {
         life -= amount;
         //kill all crops if life goes under 0
         if (life < 0){
-            destroy(quantity);
+            killAll();
         }
     }
 
