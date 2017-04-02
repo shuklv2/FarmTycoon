@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FarmTycoon</string>
+    <string name="title_activity_game_view">GameView</string>
 </resources>
