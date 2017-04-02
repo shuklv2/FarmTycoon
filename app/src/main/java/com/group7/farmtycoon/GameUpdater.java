@@ -1,5 +1,10 @@
 package com.group7.farmtycoon;
 
+import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
+import android.widget.TextView;
+
 /**
  * Created by Joseph on 3/30/2017.
  */
@@ -13,9 +18,10 @@ public class GameUpdater extends Thread{
     private int tickRate; //ticks per second
     private int minsPerDay; //how many minutes to wait before proceeding to next day
     private int dayCount;
-    private int time; //in hours
     private int ticksPerDay;
     private boolean isRunning;
+    private GameState gameState;
+    GameView currContext;
 
 
     //**************************
@@ -23,23 +29,27 @@ public class GameUpdater extends Thread{
     //**************************
 
     //Default constructor
-    public GameUpdater(){
-        tickCount = 0;
-        tickRate = 16;
-        isRunning = false;
-        minsPerDay = 3;
-        ticksPerDay = tickRate*60*minsPerDay;
-        dayCount = 0;
+    public GameUpdater(GameView context){
+        this.tickCount = 0;
+        this.tickRate = 16;
+        this.isRunning = false;
+        this.minsPerDay = 3;
+        this.ticksPerDay = tickRate*60*minsPerDay;
+        this.dayCount = 0;
+        this.gameState = new GameState();
+        this.currContext = context;
     }
 
     //Custom tickrate...in case default is too much lol
-    public GameUpdater(int tickRate, int minsPerDay){
+    public GameUpdater(GameView context, int tickRate, int minsPerDay){
         this.tickCount = 0;
         this.tickRate = tickRate;
         this.isRunning = false;
         this.minsPerDay = minsPerDay;
         this.ticksPerDay = tickRate*60*minsPerDay;
         this.dayCount = 0;
+        this.gameState = new GameState();
+        this.currContext = context;
     }
 
 
@@ -47,16 +57,19 @@ public class GameUpdater extends Thread{
     //FUNCTIONS
     //**************************
 
-    //Main thread
+    @Override
     public void run(){
+        isRunning = true;
+
         while(isRunning){
 
             //when the next day is reached
-            if ((tickCount % ticksPerDay) == 0){
+            if (((tickCount % ticksPerDay) == 0) && tickCount != 0){
                 nextDay();
             }
 
             tickCount++;
+            updateTime();
 
             try{
                 sleep(1000/tickRate); //(milliseconds)
@@ -68,13 +81,14 @@ public class GameUpdater extends Thread{
     }
 
     private void update(){
-        //this is where we'd update crop, livestock, weather attributes using the managers.
-        //for example, reduce crop and livestock hp, change weather of the day, etc
+        //this is where we tell gameState to update crop, weather, and livestock managers
     }
 
     private void nextDay(){
         //play whatever animation for ending day (fade screen to black)
         //or change any graphics indicating time of day, etc
+        gameState.setDay(gameState.getDay() + 1);
+        gameState.setTime(0.0);
         update();
         //fade back, indicate that the new day has started
     }
@@ -87,14 +101,23 @@ public class GameUpdater extends Thread{
         isRunning = false;
     }
 
-    public int getDay(){
-        return dayCount;
-    }
 
     //Calculates time of the day, returns in hours
-    public int getTime(){
+    public void updateTime(){
         int ticksToday = tickCount - dayCount*ticksPerDay;
-        return ticksToday/ticksPerDay*24;
+        gameState.setTime(((double)ticksToday/ticksPerDay - gameState.getDay() + 1)*24);
+
+        currContext.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                currContext.updateTime(gameState.getTime());
+                currContext.updateDay(gameState.getDay());
+            }
+        });
+
+//        TextView txtView = (TextView) ((Activity)currContext).findViewById(R.id.timeTxt);
+//        txtView.setText("Time: " + gameState.getTime());
     }
 
 }

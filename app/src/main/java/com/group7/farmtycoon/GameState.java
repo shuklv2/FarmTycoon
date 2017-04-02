@@ -1,46 +1,54 @@
 package com.group7.farmtycoon;
 
+import android.content.Context;
+
 /**
  * Created by Joseph on 3/30/2017.
  */
 public class GameState {
 
+    //**************************
+    //FIELDS
+    //**************************
+
     public enum state{OVERVIEW, CROP, LIVESTOCK, WEATHER}
     private int currDay;
-    private int currTime;
-    private GameUpdater gameUp;
+    private double currTime;
+    private state currState;
+    //TODO: Include livestock, weather, crop managers here
 
-    public void startGame(){
-        currDay = 0;
+    //**************************
+    //CONSTRUCTORS
+    //**************************
+
+    public GameState(){
+        currDay = 1;
         currTime = 0;
 
-        //Instantiate livestock, weather, crops here? or in GameUpdater?
-
-        //Create updater, run it
-        gameUp = new GameUpdater();
-        gameUp.run();
+        //TODO: Instantiate livestock, weather, crop managers here
     }
 
-    public void pauseGame(){
-        gameUp.pauseSim();
-    }
-
-    public void resumeGame(){
-        gameUp.resumeSim();
-    }
+    //**************************
+    //FUNCTIONS
+    //**************************
 
     public void endGame(){
         //end simulation, return to main menu
     }
-
-    public void updateDay(){
-        //get day from GameUpdater
-        this.currDay = gameUp.getDay();
+    public int getDay(){
+        return this.currDay;
+    }
+    public void setDay(int newDay){
+        this.currDay = newDay;
     }
 
-    public void updateTime(){
-        //get current time from GameUpdater (in hours)
-        this.currDay = gameUp.getTime();
-
+    public void setTime(double newTime){
+        this.currTime = newTime;
     }
+
+    public double getTime(){
+        return currTime;
+    }
+
+
 }
