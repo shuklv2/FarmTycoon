@@ -15,6 +15,7 @@ public class GameState {
     private int currDay;
     private double currTime;
     private state currState;
+    private LivestockManager livestockManager;
     //TODO: Include livestock, weather, crop managers here
 
     //**************************
