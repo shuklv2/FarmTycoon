@@ -40,6 +40,10 @@ public abstract class Crop {
 
 
     private boolean fertilized=false;
+
+    protected boolean tornadoSafe=false;
+    protected boolean droughtSafe= false;
+
     public Crop(){
 
     }
@@ -143,6 +147,8 @@ public abstract class Crop {
 
     public Bitmap getImg(){ return image;}
 
+    public int getLife(){return life;}
+
     public int getQuantity(){ return quantity; }
     public void setQuantity(int q){ this.quantity = q; }
 
@@ -151,4 +157,8 @@ public abstract class Crop {
     public boolean isHarvestabled(){ return harvestable;}
 
     public boolean expired(){return expired; }
+
+    public boolean tornadoSafe(){ return tornadoSafe;}
+
+    public boolean droughtSafe(){ return droughtSafe;}
 }

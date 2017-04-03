@@ -1,7 +1,10 @@
 package com.group7.farmtycoon;
 
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Created by Michael on 2017-03-31.
@@ -9,22 +12,22 @@ import java.util.Map;
 
 public class CropManager {
 
-    private Pumpkin pumpkin;
-    private Corn corn;
-    private Potato potato;
-    private Strawberry strawberry;
+    private static Pumpkin pumpkin;
+    private static Corn corn;
+    private static Potato potato;
+    private static Strawberry strawberry;
 
+    private Random rdm = new Random();
     //private ArrayList<Crop> crops;
 
-    private Map<String,Crop> crops;
+    private static Map<String,Crop> crops;
 
-    private boolean choosingPlant=false;
-    private boolean plantOrKill=true;   //if choosingplant is true, this determines if a crop is being chosen to be destroyed or planted
+    private static boolean plantOrKill=true;   //if choosingplant is true, this determines if a crop is being chosen to be destroyed or planted
 
 
     //private CropView view;
 
-    public CropManager(){
+    public static void init(){
         pumpkin = new Pumpkin();
         corn = new Corn();
         potato = new Potato();
@@ -37,19 +40,47 @@ public class CropManager {
     }
 
 
-    public void update(){
+    public static void update(){
+       /* if(weather == tornado){
+            for (HashMap.Entry<String, Crop> e : crops.entrySet()){
+                if(!e.tornadeSafe()){      //All crops except safe ones get killed randomly
+                    int dmg  = rdm.nextInt(e.getValue().getQuantity()+1);   //random amount of crops dying if choosen to die
+                    sendLogMessage("The Tornado caused " + dmg +" " +e.getKey() + " to die");
+                    e.getValue().destroy(dmg);
+                }
+            }
+        }
+        else if (Weather == Rain){
+             for (HashMap.Entry<String, Crop> e : crops.entrySet()){
+                e.getValue().water();
+                sendLogMessage("The Rain watered all the Crops");
+             }
+        }
+        else if( Weather ==Drought){
+             for (HashMap.Entry<String, Crop> e : crops.entrySet()){
+                if(!e.droughtSafe()){
+                    int dmg = rdm.nextInt(e.getValue().getLife()+1);
+                    endLogMessage("The Drought caused "+ e.getKey() + " to take damage.");
+                    e.getValue().takeDamage(dmg);
+                }
+             }
+        }*/
+
         for (HashMap.Entry<String, Crop> e : crops.entrySet()){
             e.getValue().update();
             if(e.getValue().expired()){
                 e.getValue().killAll();
                 sendLogMessage(e.getKey() + " is expired and has died.");
             }
+            if(e.getValue().getQuantity() <= 0){
+                sendLogMessage(e.getKey() + " has died.");
+            }
         }
         //on update send view updates
         //view.update(crops);
     }
     //water all crops
-    public void waterCrops(){
+    public static void waterCrops(){
         for (HashMap.Entry<String, Crop> e : crops.entrySet()){
             e.getValue().water();
             //view.update(crops);
@@ -59,7 +90,7 @@ public class CropManager {
     }
 
     //harvest all avalaible crops
-    public void harvestCrops(){
+    public static void harvestCrops(){
         for (HashMap.Entry<String, Crop> e : crops.entrySet()){
             Crop crop = e.getValue();
             if(crop.isHarvestabled()){
@@ -71,7 +102,7 @@ public class CropManager {
     }
 
     //clear all crops
-    public void clearAll(){
+    public static void clearAll(){
         for (HashMap.Entry<String, Crop> e : crops.entrySet()){
             e.getValue().killAll();
             //view.update(crops);
@@ -84,36 +115,41 @@ public class CropManager {
         crops.get(type).killAll();
         //view.update(crops);
         sendLogMessage(type + " has been cleared");
+
     }
 
     //plant certain type of crop amount many times
-    public void plantCrops(String type, int amount){
+    public static void plantCrops(String type, int amount){
         crops.get(type).plant(amount);
         //view.update(crops);
         sendLogMessage(amount + " " + type + " has been planted");
+        Log.d("plantCrop", type+" has been planted");
     }
 
-    public void fertilizeCrop(String type){
+    public static void fertilizeCrop(String type){
         crops.get(type).fertilize();
     }
 
     //destroy certain amount of crops
-    public void destroyCrops(String type, int amount){
+    public static void destroyCrops(String type, int amount){
         crops.get(type).destroy(amount);
         //view.update(crops);
         sendLogMessage(amount + " " + type + " has been killed");
+        Log.d("clearCrop", type+" has been cleared");
     }
 
     //used to send log messages
-    private void sendLogMessage(String msg){
+    private static void sendLogMessage(String msg){
         //gamestate.addMessage(msg)
     }
 
     //called when plant or clear is called
-    public void updateView(){
+    public static void updateView(){
         //view.updateInterface();
     }
 
     //used by view to change
-    public void setChoosingPlant(boolean status){ choosingPlant =status;}
+    public static void setPlantOrKill(boolean status){ plantOrKill =status;}
+
+    public static boolean plantOrKill(){ return plantOrKill; }
 }

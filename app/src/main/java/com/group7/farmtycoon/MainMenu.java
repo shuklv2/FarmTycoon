@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -17,7 +16,7 @@ public class MainMenu extends AppCompatActivity {
 
     public void startBtnPress(View v){
         Log.d("startBtn", "Clicked");
-        Intent intent = new Intent(getApplicationContext(), GameView.class );
+        Intent intent = new Intent(getApplicationContext(), CropMenu.class );
         startActivity(intent);
     }
 

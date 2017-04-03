@@ -30,4 +30,6 @@ public class GameView extends AppCompatActivity {
         TextView timeText = (TextView) findViewById(R.id.dayTxt);
         timeText.setText("Day: " + day);
     }
+
+
 }

@@ -9,6 +9,7 @@ public class Pumpkin extends Crop {
     public Pumpkin(){
         this.HP = 15;
         this.expiryPeriod = 3;
+        droughtSafe = true;
         //image = insert image
     }
 
