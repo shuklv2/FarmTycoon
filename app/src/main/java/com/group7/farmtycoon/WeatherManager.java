@@ -1,5 +1,5 @@
 package com.group7.farmtycoon;
-
+import java.util.Random;
 
 /**
  * Created by Sebas on 2017-04-02.
@@ -56,9 +56,26 @@ public class WeatherManager {
                 break;
 
         }
-        currWeather.update();
-        if(!currWeather.getState()){
+
+
+        double rdm = Math.random();
+        if(rdm <0.25){
+            currentWeather = list.Tornado;
+        }
+        else if (rdm <0.5){
+            currentWeather = list.Rain;
+        }
+        else if(rdm<0.75){
+            currentWeather = list.Drought;
+        }
+        else  if(rdm <1){
             currentWeather = list.Sunny;
         }
+
+
+//        currWeather.update();
+//        if(!currWeather.getState()){
+//            currentWeather = list.Sunny;
+//        }
     }
 }
