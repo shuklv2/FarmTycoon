@@ -41,6 +41,7 @@ public class CropManager {
 
 
     public static void update(){
+        Log.d("CropManager:Update","Updated!");
        /* if(weather == tornado){
             for (HashMap.Entry<String, Crop> e : crops.entrySet()){
                 if(!e.tornadeSafe()){      //All crops except safe ones get killed randomly
@@ -70,9 +71,11 @@ public class CropManager {
             e.getValue().update();
             if(e.getValue().expired()){
                 e.getValue().killAll();
+                Log.d("CropManager",e.getKey() + " is expired and has died.");
                 sendLogMessage(e.getKey() + " is expired and has died.");
             }
             if(e.getValue().getQuantity() <= 0){
+                Log.d("CropManager",e.getKey() + " has died.");
                 sendLogMessage(e.getKey() + " has died.");
             }
         }
@@ -82,8 +85,11 @@ public class CropManager {
     //water all crops
     public static void waterCrops(){
         for (HashMap.Entry<String, Crop> e : crops.entrySet()){
-            e.getValue().water();
+            if(e.getValue().getQuantity() >0){
+                e.getValue().water();
+            }
             //view.update(crops);
+            Log.d("CropManager",e.getKey() + " has been watered.");
             sendLogMessage(e.getKey()  + " has been watered.");
 
         }
@@ -92,11 +98,12 @@ public class CropManager {
     //harvest all avalaible crops
     public static void harvestCrops(){
         for (HashMap.Entry<String, Crop> e : crops.entrySet()){
-            Crop crop = e.getValue();
-            if(crop.isHarvestabled()){
-                crop.harvest();
+            if(e.getValue().isHarvestabled()){
+
                 //view.update(crops);
-                sendLogMessage(crop.getQuantity() + " " + e.getKey()  + " has just been harvested.");
+                Log.d("CropManager",e.getValue().getQuantity() + " " + e.getKey()  + " has just been harvested.");
+                sendLogMessage(e.getValue().getQuantity() + " " + e.getKey()  + " has just been harvested.");
+                e.getValue().harvest();
             }
         }
     }
@@ -114,6 +121,7 @@ public class CropManager {
     public void clearCrop(String type){
         crops.get(type).killAll();
         //view.update(crops);
+        Log.d("CropManager",type + " has been cleared");
         sendLogMessage(type + " has been cleared");
 
     }
@@ -122,20 +130,22 @@ public class CropManager {
     public static void plantCrops(String type, int amount){
         crops.get(type).plant(amount);
         //view.update(crops);
+        Log.d("CropManager",amount + " " + type + " has been planted");
         sendLogMessage(amount + " " + type + " has been planted");
-        Log.d("plantCrop", type+" has been planted");
     }
 
     public static void fertilizeCrop(String type){
+
         crops.get(type).fertilize();
+        Log.d("CropManager", type+" has been fertilized");
     }
 
     //destroy certain amount of crops
     public static void destroyCrops(String type, int amount){
         crops.get(type).destroy(amount);
         //view.update(crops);
+        Log.d("CropManager",amount + " " + type + " has been killed");
         sendLogMessage(amount + " " + type + " has been killed");
-        Log.d("clearCrop", type+" has been cleared");
     }
 
     //used to send log messages
@@ -146,6 +156,10 @@ public class CropManager {
     //called when plant or clear is called
     public static void updateView(){
         //view.updateInterface();
+    }
+
+    public static Crop getCrop(String type){
+        return crops.get(type);
     }
 
     //used by view to change

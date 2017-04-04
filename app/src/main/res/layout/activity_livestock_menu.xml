@@ -202,11 +202,12 @@
         android:text="CowInfo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/collectMilk"
-        app:layout_constraintRight_toRightOf="@+id/collectMilk"
         app:layout_constraintTop_toBottomOf="@+id/collectMilk"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toLeftOf="@+id/buyPig"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/collectMilk" />
 
     <TextView
         android:id="@+id/pigText"
@@ -220,13 +221,13 @@
         android:layout_marginTop="8dp"
         android:text="PigInfo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="@+id/buyPig"
-        app:layout_constraintRight_toRightOf="@+id/buyPig"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buyPig"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/buyPig" />
 
     <TextView
         android:id="@+id/chickenText"
