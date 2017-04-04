@@ -33,16 +33,16 @@ public class WeatherManager {
         weather.setState(state);
     }
 
-    public void update(){
-        /*if (weather.setState(this.tornado)) {
-            System.out.println("It is tornado.");
-        }
-        else if (weather.setState(this.rain)){
-            System.out.println("It is rain.");
-        }
-        else if (weather.setState(this.drought)){
-            System.out.println("It is drought.");
-        }*/
-    }
+//    public void update(){
+//        if (weather.setState(this.tornado)) {
+//            System.out.println("It is tornado.");
+//        }
+//        else if (weather.setState(this.rain)){
+//            System.out.println("It is rain.");
+//        }
+//        else if (weather.setState(this.drought)){
+//            System.out.println("It is drought.");
+//        }
+//    }
 
 }
