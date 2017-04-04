@@ -82,6 +82,7 @@ public class GameUpdater extends Thread{
 
     private void update(){
         //this is where we tell gameState to update crop, weather, and livestock managers
+        gameState.updateAll();
     }
 
     private void nextDay(){
