@@ -13,7 +13,7 @@ public class WeatherManager {
 
     private Weather currWeather;
 
-    private enum list {
+    public enum list {
         Tornado, Rain, Drought, Sunny
     }
 
