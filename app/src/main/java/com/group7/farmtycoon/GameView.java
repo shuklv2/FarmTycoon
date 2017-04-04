@@ -36,6 +36,10 @@ public class GameView extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), LivestockMenu.class );
         startActivity(intent);
     }
+    public void cropButtonPress(View v){
+        Intent intent = new Intent(getApplicationContext(), CropMenu.class );
+        startActivity(intent);
+    }
 
 
 }
