@@ -18,7 +18,9 @@
         <activity
             android:name=".GameView"
             android:label="@string/title_activity_game_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CropMenu" />
+        <activity android:name=".CropChooseMenu"></activity>
     </application>
 
 </manifest>

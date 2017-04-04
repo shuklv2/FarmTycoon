@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.group7.farmtycoon.CropChooseMenu">
+
+    <EditText
+        android:id="@+id/qtyTB"
+        android:layout_width="65dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_marginLeft="193dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="84dp"
+        tools:layout_editor_absoluteY="381dp"
+        tools:layout_editor_absoluteX="194dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="150dp"
+        android:layout_height="39dp"
+        android:text="Choose Quantity:"
+        android:textSize="18dp"
+        app:layout_constraintRight_toLeftOf="@+id/qtyTB"
+        android:layout_marginRight="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="81dp" />
+
+    <Button
+        android:id="@+id/okBtn"
+        android:onClick="okBtnPress"
+        android:layout_width="63dp"
+        android:layout_height="39dp"
+        android:text="Ok"
+        app:layout_constraintLeft_toRightOf="@+id/qtyTB"
+        android:layout_marginLeft="11dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="80dp" />
+
+
+
+    <RadioGroup
+        android:layout_width="292dp"
+        android:layout_height="193dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="26dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/cornRB"
+            android:onClick="cornRbClicked"
+            android:layout_width="109dp"
+            android:layout_height="35dp"
+            android:text="Corn" />
+
+
+        <RadioButton
+            android:id="@+id/strawberryRB"
+            android:onClick="strawberryRbClicked"
+            android:layout_width="128dp"
+            android:layout_height="32dp"
+            android:text="Strawberry" />
+
+        <RadioButton
+            android:id="@+id/potatoRB"
+            android:onClick="potatoRbClicked"
+            android:layout_width="132dp"
+            android:layout_height="wrap_content"
+            android:text="Potato" />
+
+        <RadioButton
+            android:id="@+id/pumpkinRB"
+            android:onClick="pumpkinRbClicked"
+            android:layout_width="120dp"
+            android:layout_height="37dp"
+            android:text="Pumpkin" />
+
+    </RadioGroup>
+
+</android.support.constraint.ConstraintLayout>
