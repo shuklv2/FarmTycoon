@@ -42,10 +42,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Livestock"
-                android:id="@+id/button2"
+                android:id="@+id/livestockButton"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_column="2" />
+                android:layout_column="2"
+                android:onClick="livestockButtonPress"/>
         </TableRow>
     </TableLayout>
 

@@ -7,9 +7,9 @@ import java.util.Random;
  */
 public class LivestockManager {
 
-    private Cow cow;
-    private Chicken chicken;
-    private Pig pig;
+    private static Cow cow;
+    private static Chicken chicken;
+    private static Pig pig;
     private int livestockTimer;
 
     public LivestockManager(){
@@ -20,15 +20,27 @@ public class LivestockManager {
     }
 
 
-    public int getLivestockHunger(Livestock livestock){
+    public static Chicken getChicken(){
+        return chicken;
+    }
+
+    public static Cow getCow(){
+        return cow;
+    }
+
+    public static Pig getPig(){
+        return pig;
+    }
+
+    public static int getLivestockHunger(Livestock livestock){
         return livestock.getHunger();
     }
 
-    public int getLivestockQuantity(Livestock livestock){
+    public static int getLivestockQuantity(Livestock livestock){
         return livestock.getQuantity();
     }
 
-    public boolean getLivestockState(Livestock livestock){
+    public static boolean getLivestockState(Livestock livestock){
         return livestock.getState();
     }
 
@@ -44,11 +56,11 @@ public class LivestockManager {
         livestock.setState(state);
     }
 
-    public void buy(Livestock livestock){
+    public static void buy(Livestock livestock){
         livestock.setQuantity(livestock.getQuantity()+1);
     }
 
-    public void butcher(Livestock livestock){
+    public static void butcher(Livestock livestock){
         if (livestock.getQuantity() > 1){
             livestock.setQuantity(livestock.getQuantity()-1);
         }else if(livestock.getQuantity() == 1){
@@ -59,13 +71,13 @@ public class LivestockManager {
         }
     }
 
-    public void collectResources(Livestock livestock){
+    public static void collectResources(Livestock livestock){
         if (livestock.getResources() > 0 && livestock.getState()) {
             livestock.setResources(0);
         }
     }
 
-    public void feed(Livestock livestock){
+    public static void feed(Livestock livestock){
         if (livestock.getHunger() < 100 && livestock.getState()){
             livestock.setHunger(livestock.getHunger()+10);
         }else{
@@ -74,14 +86,14 @@ public class LivestockManager {
 
     }
 
-    public void breed(Livestock livestock){
+    public static void breed(Livestock livestock){
         if (livestock.getQuantity() >= 2){
             livestock.setQuantity(livestock.getQuantity()+1);
         }
 
     }
 
-    public void tornadoEffect(){
+    public static void tornadoEffect(){
         int cowQ = cow.getQuantity();
         int pigQ = pig.getQuantity();
         int chickenQ = chicken.getQuantity();

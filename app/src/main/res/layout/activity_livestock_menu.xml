@@ -18,7 +18,8 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="feedPigPress"/>
 
     <Button
         android:id="@+id/feedCow"
@@ -31,7 +32,8 @@
         android:layout_marginTop="16dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="feedCowPress"/>
 
     <Button
         android:id="@+id/buyCow"
@@ -43,7 +45,8 @@
         app:layout_constraintRight_toRightOf="@+id/breedCow"
         app:layout_constraintTop_toBottomOf="@+id/breedCow"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/breedCow" />
+        app:layout_constraintLeft_toLeftOf="@+id/breedCow"
+        android:onClick="buyCow"/>
 
     <Button
         android:id="@+id/breedCow"
@@ -55,7 +58,8 @@
         app:layout_constraintRight_toRightOf="@+id/butcherCow"
         app:layout_constraintTop_toBottomOf="@+id/butcherCow"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/butcherCow" />
+        app:layout_constraintLeft_toLeftOf="@+id/butcherCow"
+        android:onClick="breedCow"/>
 
     <Button
         android:id="@+id/butcherCow"
@@ -67,7 +71,8 @@
         app:layout_constraintRight_toRightOf="@+id/feedCow"
         app:layout_constraintTop_toBottomOf="@+id/feedCow"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/feedCow" />
+        app:layout_constraintLeft_toLeftOf="@+id/feedCow"
+        android:onClick="butcherCowPress"/>
 
     <Button
         android:id="@+id/feedChicken"
@@ -78,7 +83,8 @@
         android:layout_marginTop="16dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/butcherChicken"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="feedChickenPress"/>
 
     <Button
         android:id="@+id/buyChicken"
@@ -90,7 +96,8 @@
         app:layout_constraintRight_toRightOf="@+id/collectEggs"
         app:layout_constraintTop_toBottomOf="@+id/breedChicken"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/collectEggs" />
+        app:layout_constraintLeft_toLeftOf="@+id/collectEggs"
+        android:onClick="buyChicken"/>
 
     <Button
         android:id="@+id/breedChicken"
@@ -102,7 +109,8 @@
         app:layout_constraintRight_toRightOf="@+id/buyChicken"
         app:layout_constraintTop_toBottomOf="@+id/butcherChicken"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/buyChicken" />
+        app:layout_constraintLeft_toLeftOf="@+id/buyChicken"
+        android:onClick="breedChicken"/>
 
     <Button
         android:id="@+id/butcherChicken"
@@ -114,7 +122,8 @@
         app:layout_constraintRight_toRightOf="@+id/breedChicken"
         app:layout_constraintTop_toBottomOf="@+id/feedChicken"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/breedChicken" />
+        app:layout_constraintLeft_toLeftOf="@+id/breedChicken"
+        android:onClick="butcherChickenPress"/>
 
     <Button
         android:id="@+id/butcherPig"
@@ -126,7 +135,8 @@
         app:layout_constraintRight_toRightOf="@+id/feedPig"
         app:layout_constraintTop_toBottomOf="@+id/feedPig"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/feedPig" />
+        app:layout_constraintLeft_toLeftOf="@+id/feedPig"
+        android:onClick="butcherPigPress"/>
 
     <Button
         android:id="@+id/breedPig"
@@ -138,7 +148,8 @@
         app:layout_constraintRight_toRightOf="@+id/butcherPig"
         app:layout_constraintTop_toBottomOf="@+id/butcherPig"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/butcherPig" />
+        app:layout_constraintLeft_toLeftOf="@+id/butcherPig"
+        android:onClick="breedPig"/>
 
     <Button
         android:id="@+id/buyPig"
@@ -150,7 +161,8 @@
         app:layout_constraintRight_toRightOf="@+id/breedPig"
         app:layout_constraintTop_toBottomOf="@+id/breedPig"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/breedPig" />
+        app:layout_constraintLeft_toLeftOf="@+id/breedPig"
+        android:onClick="buyPig"/>
 
     <Button
         android:id="@+id/collectMilk"
@@ -162,7 +174,8 @@
         app:layout_constraintRight_toRightOf="@+id/buyCow"
         app:layout_constraintTop_toBottomOf="@+id/buyCow"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/buyCow" />
+        app:layout_constraintLeft_toLeftOf="@+id/buyCow"
+        android:onClick="milkPress"/>
 
     <Button
         android:id="@+id/collectEggs"
@@ -173,7 +186,8 @@
         android:layout_marginStart="16dp"
         app:layout_constraintTop_toBottomOf="@+id/buyChicken"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:onClick="eggsPress"/>
 
     <TextView
         android:id="@+id/cowText"
