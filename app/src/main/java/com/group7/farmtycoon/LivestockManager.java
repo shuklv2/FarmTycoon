@@ -58,6 +58,9 @@ public class LivestockManager {
 
     public static void buy(Livestock livestock){
         livestock.setQuantity(livestock.getQuantity()+1);
+        if (livestock.getQuantity() > 0){
+            livestock.setState(true);
+        }
     }
 
     public static void butcher(Livestock livestock){
@@ -93,7 +96,7 @@ public class LivestockManager {
 
     }
 
-    public static void tornadoEffect(){
+    public void tornadoEffect(){
         int cowQ = cow.getQuantity();
         int pigQ = pig.getQuantity();
         int chickenQ = chicken.getQuantity();
@@ -121,7 +124,15 @@ public class LivestockManager {
     }
 
     public void update() {
-
+        if (chicken.getQuantity() > 0){
+            chicken.setState(true);
+        }
+        if (cow.getQuantity() > 0){
+            cow.setState(true);
+        }
+        if (pig.getQuantity() > 0){
+            pig.setState(true);
+        }
         if (livestockTimer >= 10 && livestockTimer <= 100) {
             livestockTimer -= 10;
             if (chicken.getHunger() >= 10 && cow.getHunger() >= 10 && pig.getHunger() >=10){
@@ -163,6 +174,11 @@ public class LivestockManager {
         if(livestockTimer < 10){
             livestockTimer = 100;
         }
+
+        /*
+        if (weather == "Tornado"){
+            tornadoEffect();
+        }*/
 
     }
 }
