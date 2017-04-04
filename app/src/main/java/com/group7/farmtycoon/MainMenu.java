@@ -16,7 +16,7 @@ public class MainMenu extends AppCompatActivity {
 
     public void startBtnPress(View v){
         Log.d("startBtn", "Clicked");
-        Intent intent = new Intent(getApplicationContext(), CropMenu.class );
+        Intent intent = new Intent(getApplicationContext(), GameView.class );
         startActivity(intent);
     }
 
