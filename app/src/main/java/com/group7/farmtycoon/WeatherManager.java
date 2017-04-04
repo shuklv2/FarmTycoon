@@ -11,6 +11,12 @@ public class WeatherManager {
     private Drought drought;
     private Sunny sunny;
 
+    private enum list {
+        Tornado, Rain, Drought, Sunny
+    }
+
+    private list currentWeather;
+    public list getWeatherState(){ return currentWeather; }
 
     public WeatherManager(){
         this.tornado = new Tornado();
@@ -32,22 +38,21 @@ public class WeatherManager {
         currentWeather = weather;
     }
 
-    public void update(){
-        switch(currentWeather){
-            case Tornado: tornado.update(); break;
-            case Rain: rain.update(); break;
-            case Drought : drought.update(); break;
-            case Sunny: sunny.update(); break;
+    public void update() {
+        switch (currentWeather) {
+            case Tornado:
+                tornado.update();
+                break;
+            case Rain:
+                rain.update();
+                break;
+            case Drought:
+                drought.update();
+                break;
+            case Sunny:
+                sunny.update();
+                break;
 
         }
-
-    public enum list {
-        Tornado, Rain, Drought, Sunny
     }
-
-    private list currentWeather;
-    public list getWeatherState(){ return currentWeather; }
-
-
-
 }
