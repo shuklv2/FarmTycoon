@@ -1,6 +1,7 @@
 package com.group7.farmtycoon;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 /**
  * Created by Michael on 2017-03-30.
@@ -9,7 +10,7 @@ import android.graphics.Bitmap;
 public abstract class Crop {
 
     //Life vars
-    private int life=0;
+    protected int life=0;
     protected int HP=0;
 
 
@@ -27,10 +28,7 @@ public abstract class Crop {
     private boolean noWater=false;
     private int starveDMG =1;
     //how many of this crop is there
-    private int quantity=0;
-
-    //the image that represents the crops
-    protected Bitmap image;
+    private int quantity=10;
 
     //if the crop was just watered (should refresh expiryPeriod)
     private boolean watered;
@@ -44,54 +42,51 @@ public abstract class Crop {
     protected boolean tornadoSafe=false;
     protected boolean droughtSafe= false;
 
-    public Crop(){
-
-    }
     //basic update model of crops
     public void update(){
         //check if plant was water
-        if(watered){
-            //turn off water
-            watered=false;
-            //reset no water
-            noWater=false;
-            noWaterTimer=0;
-        }
-        else{
-            noWaterTimer++;
-            if(noWaterTimer >= noWaterPeriod){
-                noWater= true;
+        if(quantity>0) {
+            if (watered) {
+                //turn off water
+                watered = false;
+                //reset no water
+                noWater = false;
+                noWaterTimer = 0;
+            } else {
+                noWaterTimer++;
+                if (noWaterTimer >= noWaterPeriod) {
+                    noWater = true;
+                }
             }
-        }
 
-        if(noWater){
-            takeDamage(starveDMG);
-        }
-        else{
-            life +=1;
-            //cant go over HP amount
-            if(life > HP){
-                life = HP;
+            if (noWater) {
+                takeDamage(starveDMG);
+            } else {
+                life += 1;
+                //cant go over HP amount
+                if (life > HP) {
+                    life = HP;
+                }
             }
-        }
-        //check if crop is harvestable
-        //with fertilizer, grows twice as fast
-        if(life == HP || (fertilized && life == HP/2)){
-            harvestable=true;
-        }
+            //check if crop is harvestable
+            //with fertilizer, grows twice as fast
+            if (life == HP || (fertilized && life == HP / 2)) {
+                harvestable = true;
+            }
 
-        //checking if harvested crops should start expiring
-        if(harvestable){
-            startExpiring=true;
-        }
+            //checking if harvested crops should start expiring
+            if (harvestable) {
+                startExpiring = true;
+            }
 
 
-        //expiring countdown
-        if(startExpiring){
-            expiryTimer++;
-            if(expiryTimer >= expiryPeriod){
-                expired= true;
-                expiryTimer=0;
+            //expiring countdown
+            if (startExpiring) {
+                expiryTimer++;
+                if (expiryTimer >= expiryPeriod) {
+                    expired = true;
+                    expiryTimer = 0;
+                }
             }
         }
     }
@@ -110,6 +105,7 @@ public abstract class Crop {
     //harvest the crops
     public void harvest(){
         quantity = 0;
+        life=0;
         watered=false;
         harvestable=false;
         fertilized=false;
@@ -145,11 +141,12 @@ public abstract class Crop {
     }
 
 
-    public Bitmap getImg(){ return image;}
-
     public int getLife(){return life;}
 
-    public int getQuantity(){ return quantity; }
+    public int getHP() {return HP;}
+    public int getQuantity(){
+        return quantity;
+    }
     public void setQuantity(int q){ this.quantity = q; }
 
     public boolean isWatered(){ return watered;}

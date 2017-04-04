@@ -14,55 +14,189 @@
     <Button
         android:id="@+id/plantBtn"
         android:onClick="plantBtnPress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85dp"
+        android:layout_height="61dp"
         android:text="Plant Crops"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="290dp" />
+        app:layout_constraintLeft_toRightOf="@+id/waterBtn"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="5dp"
+        tools:layout_editor_absoluteY="429dp"
+        tools:layout_editor_absoluteX="138dp" />
 
     <Button
         android:id="@+id/clearBtn"
         android:onClick="clearBtnPress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85dp"
+        android:layout_height="62dp"
         android:text="Clear Crops"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="354dp" />
+        app:layout_constraintLeft_toRightOf="@+id/plantBtn"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="3dp" />
 
     <Button
         android:id="@+id/waterBtn"
         android:onClick="waterBtnPress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="99dp"
+        android:layout_height="60dp"
         android:text="Water Crops"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="222dp" />
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp" />
 
     <Button
         android:id="@+id/harvestBtn"
         android:onClick="harvestBtnPress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="97dp"
+        android:layout_height="51dp"
         android:text="Harvest Crops"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="156dp"
-        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="94dp"
+        android:layout_marginRight="40dp"
         app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/viewBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="84dp"
         android:onClick="viewBtnPress"
         android:text="View Status"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="94dp"
+        app:layout_constraintRight_toLeftOf="@+id/harvestBtn"
+        android:layout_marginRight="61dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="75dp"
+        android:layout_height="91dp"
+        app:srcCompat="@drawable/corn"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="68dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/potato"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="67dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/strawberry"
+        android:layout_marginTop="27dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintLeft_toRightOf="@+id/imageView2"
+        android:layout_marginLeft="93dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="70dp"
+        android:layout_height="72dp"
+        app:srcCompat="@drawable/pumpkin"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="51dp"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        android:layout_marginLeft="90dp" />
+
+    <TextView
+        android:id="@+id/pumpkinQty"
+        android:layout_width="57dp"
+        android:layout_height="22dp"
+        android:text="111"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="53dp"
+        app:layout_constraintLeft_toRightOf="@+id/imageView7"
+        android:layout_marginLeft="4dp" />
+
+    <TextView
+        android:id="@+id/strawberryQty"
+        android:layout_width="57dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="152dp"
+        android:text="111"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/imageView3"
+        android:layout_marginLeft="4dp" />
+
+    <TextView
+        android:id="@+id/potatoQty"
+        android:layout_width="57dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="152dp"
+        android:text="111"
+        app:layout_constraintLeft_toRightOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cornQty"
+        android:layout_width="57dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="45dp"
+        android:text="111"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:onClick="backBtnPress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="-27dp"
+        android:layout_marginLeft="-7dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/potatoHP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintLeft_toRightOf="@+id/imageView2"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/potatoQty" />
+
+    <TextView
+        android:id="@+id/pumpkinHP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintLeft_toRightOf="@+id/imageView3"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/pumpkinQty" />
+
+    <TextView
+        android:id="@+id/strawberryHP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintLeft_toRightOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/strawberryQty" />
+
+    <TextView
+        android:id="@+id/cornHP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/cornQty" />
+
 </android.support.constraint.ConstraintLayout>

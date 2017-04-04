@@ -15,6 +15,10 @@ public class CropChooseMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crop_choose_menu);
+        if(!CropManager.plantOrKill()){
+            ToggleButton fertTB = (ToggleButton) findViewById(R.id.fertilizeTB);
+            fertTB.setVisibility(View.GONE);
+        }
     }
     public void okBtnPress(View v){
         TextView qtyText = (TextView) findViewById(R.id.qtyTB);
@@ -27,6 +31,10 @@ public class CropChooseMenu extends AppCompatActivity {
         if(qty >0 && type != ""){
             if(CropManager.plantOrKill()){
                 CropManager.plantCrops(type,qty);
+                ToggleButton fertTB = (ToggleButton) findViewById(R.id.fertilizeTB);
+                if(fertTB.isChecked()){
+                    CropManager.fertilizeCrop(type);
+                }
             }
             else{
                 CropManager.destroyCrops(type,qty);
