@@ -11,6 +11,8 @@ public class WeatherManager {
     private Drought drought;
     private Sunny sunny;
 
+    private Weather currWeather;
+
     private enum list {
         Tornado, Rain, Drought, Sunny
     }
@@ -41,18 +43,22 @@ public class WeatherManager {
     public void update() {
         switch (currentWeather) {
             case Tornado:
-                tornado.update();
+                currWeather =tornado;
                 break;
             case Rain:
-                rain.update();
+                currWeather =rain;
                 break;
             case Drought:
-                drought.update();
+                currWeather =drought;
                 break;
             case Sunny:
-                sunny.update();
+                currWeather =sunny;
                 break;
 
+        }
+        currWeather.update();
+        if(!currWeather.getState()){
+            currentWeather = list.Sunny;
         }
     }
 }
