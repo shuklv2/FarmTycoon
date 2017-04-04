@@ -15,6 +15,9 @@ public class GameState {
     private int currDay;
     private double currTime;
     private state currState;
+    private LivestockManager livestockManager;
+    private CropManager cropManager;
+    private WeatherManager weatherManager;
     //TODO: Include livestock, weather, crop managers here
 
     //**************************
@@ -25,6 +28,9 @@ public class GameState {
         currDay = 1;
         currTime = 0;
 
+        livestockManager = new LivestockManager();
+        cropManager = new CropManager();
+        weatherManager = new WeatherManager();
         //TODO: Instantiate livestock, weather, crop managers here
     }
 
@@ -32,12 +38,19 @@ public class GameState {
     //FUNCTIONS
     //**************************
 
+    public void updateAll(){
+        livestockManager.update();
+        cropManager.update();
+        weatherManager.update();
+    }
     public void endGame(){
         //end simulation, return to main menu
     }
+
     public int getDay(){
         return this.currDay;
     }
+
     public void setDay(int newDay){
         this.currDay = newDay;
     }

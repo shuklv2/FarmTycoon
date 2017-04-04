@@ -1,6 +1,7 @@
 package com.group7.farmtycoon;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -29,6 +30,11 @@ public class GameView extends AppCompatActivity {
     public void updateDay(int day){
         TextView timeText = (TextView) findViewById(R.id.dayTxt);
         timeText.setText("Day: " + day);
+    }
+
+    public void livestockButtonPress(View v){
+        Intent intent = new Intent(getApplicationContext(), LivestockMenu.class );
+        startActivity(intent);
     }
 
 
