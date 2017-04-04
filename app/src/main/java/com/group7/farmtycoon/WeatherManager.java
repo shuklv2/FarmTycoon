@@ -34,7 +34,7 @@ public class WeatherManager {
     }
 
     public void update(){
-        if (weather.setState(this.tornado)) {
+        /*if (weather.setState(this.tornado)) {
             System.out.println("It is tornado.");
         }
         else if (weather.setState(this.rain)){
@@ -42,7 +42,7 @@ public class WeatherManager {
         }
         else if (weather.setState(this.drought)){
             System.out.println("It is drought.");
-        }
+        }*/
     }
 
 }
