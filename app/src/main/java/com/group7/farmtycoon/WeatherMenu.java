@@ -1,9 +1,10 @@
 package com.group7.farmtycoon;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-
+import android.widget.TextView;
 
 public class WeatherMenu extends AppCompatActivity {
 
@@ -13,9 +14,11 @@ public class WeatherMenu extends AppCompatActivity {
         setContentView(R.layout.activity_weather_menu);
     }
 
+
     public void droughtPress(View v){
         w.setWeatherState(WeatherManager.list.Drought);
     }
+
     public void rainPress(View v){
         w.setWeatherState(WeatherManager.list.Rain);
     }
@@ -27,6 +30,13 @@ public class WeatherMenu extends AppCompatActivity {
     }
 
     WeatherManager w = new WeatherManager();
+
+    public void backBtnPress(View v){
+        Intent intent = new Intent(getApplicationContext(), GameView.class );
+        startActivity(intent);
+    }
+
+
 }
 
 

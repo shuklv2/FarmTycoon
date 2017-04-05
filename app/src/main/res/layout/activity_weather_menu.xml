@@ -7,4 +7,48 @@
     tools:context="com.group7.farmtycoon.WeatherMenu"
     android:background="@drawable/farm">
 
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="backBtnPress"
+        android:text="Back"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="31dp" />
+
+    <Button
+        android:id="@+id/Rain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="rainPress"
+        android:text="Rain"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="155dp" />
+
+    <Button
+        android:id="@+id/Tornado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="tornadoPress"
+        android:text="Tornado"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="285dp" />
+
+    <Button
+        android:id="@+id/Drought"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="droughtPress"
+        android:text="Drought"
+        tools:layout_editor_absoluteX="218dp"
+        tools:layout_editor_absoluteY="155dp" />
+
+    <Button
+        android:id="@+id/Sunny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sunnyPress"
+        android:text="Sunny"
+        tools:layout_editor_absoluteX="218dp"
+        tools:layout_editor_absoluteY="285dp" />
 </android.support.constraint.ConstraintLayout>
