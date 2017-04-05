@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.group7.farmtycoon.LivestockMenu"
     tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:layout_editor_absoluteX="0dp"
+    android:background="@drawable/farm">
 
     <Button
         android:id="@+id/feedPig"

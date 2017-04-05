@@ -13,12 +13,14 @@ import android.widget.TextView;
 
 public class GameView extends AppCompatActivity {
 
+    GameUpdater gameUpdater;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_view);
 
-        GameUpdater gameUpdater = new GameUpdater(GameView.this);
+        gameUpdater = new GameUpdater(GameView.this);
         gameUpdater.start();
     }
 
@@ -45,5 +47,13 @@ public class GameView extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void nextDayButtonPress(View v){
+        gameUpdater.nextDay();
+    }
+
+    public void updateLog(String newLog){
+        TextView logText = (TextView) findViewById(R.id.logTxt);
+        logText.setText(newLog);
+    }
 
 }

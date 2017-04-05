@@ -2,6 +2,9 @@ package com.group7.farmtycoon;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Joseph on 3/30/2017.
  */
@@ -11,13 +14,13 @@ public class GameState {
     //FIELDS
     //**************************
 
-    public enum state{OVERVIEW, CROP, LIVESTOCK, WEATHER}
+    public enum state{OVERVIEW, CROP, LIVESTOCK, WEATHER} //May be unneeded
     private int currDay;
     private double currTime;
     private state currState;
     private LivestockManager livestockManager;
     private WeatherManager weatherManager;
-    //TODO: Include livestock, weather, crop managers here
+    public static List updateLog;
 
     //**************************
     //CONSTRUCTORS
@@ -30,7 +33,8 @@ public class GameState {
         livestockManager = new LivestockManager();
         weatherManager = new WeatherManager();
         CropManager.init();
-        //TODO: Instantiate livestock, weather, crop managers here
+
+        updateLog = new ArrayList();
     }
 
     //**************************
@@ -38,9 +42,13 @@ public class GameState {
     //**************************
 
     public void updateAll(){
-        livestockManager.update();
-        CropManager.update();
+        livestockManager.update(weatherManager.getWeatherState());
+        //CropManager.update(weatherManager.getWeatherState());
         //weatherManager.update();
+    }
+
+    public List getLogs(){
+        return updateLog;
     }
     public void endGame(){
         //end simulation, return to main menu
