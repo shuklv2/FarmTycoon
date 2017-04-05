@@ -43,7 +43,7 @@ public class GameState {
 
     public void updateAll(){
         livestockManager.update(weatherManager.getWeatherState());
-        CropManager.update(weatherManager.getWeatherState());
+        //CropManager.update(weatherManager.getWeatherState());
         weatherManager.update();
     }
 

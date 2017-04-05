@@ -11,7 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.group7.farmtycoon.GameView"
-    tools:showIn="@layout/activity_game_view">
+    tools:showIn="@layout/activity_game_view"
+    android:background="@drawable/farm">
 
     <TableLayout
         android:id="@+id/tableLayout"
