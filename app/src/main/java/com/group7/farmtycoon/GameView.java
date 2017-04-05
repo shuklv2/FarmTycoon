@@ -45,5 +45,9 @@ public class GameView extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void updateLog(String newLog){
+        TextView logText = (TextView) findViewById(R.id.logTxt);
+        logText.setText(newLog);
+    }
 
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:minHeight="241dp"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -13,62 +14,76 @@
     tools:showIn="@layout/activity_game_view">
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/tableLayout">
+        android:layout_centerHorizontal="true">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <Button
-                android:text="Crops"
                 android:id="@+id/cropBtn"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:layout_column="0"
-                android:onClick="cropButtonPress"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Weather"
-                android:onClick="weatherButtonPress"
-                android:id="@+id/button"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_column="1" />
+                android:layout_column="0"
+                android:onClick="cropButtonPress"
+                android:text="Crops" />
 
             <Button
+                android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Livestock"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_column="1"
+                android:text="Weather" />
+
+            <Button
                 android:id="@+id/livestockButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_column="2"
-                android:onClick="livestockButtonPress"/>
+                android:onClick="livestockButtonPress"
+                android:text="Livestock" />
         </TableRow>
     </TableLayout>
 
     <TextView
+        android:id="@+id/timeTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Time: "
-        android:id="@+id/timeTxt"
-        android:layout_marginBottom="52dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="52dp"
+        android:text="Time: "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
+        android:id="@+id/dayTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Day: "
-        android:id="@+id/dayTxt"
         android:layout_above="@+id/timeTxt"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:text="Day: "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/logTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:clickable="false"
+        android:contextClickable="false"
+        android:scrollbars="vertical"
+        android:singleLine="false"
+        android:text="Test1\nTest2\nTest3"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </RelativeLayout>

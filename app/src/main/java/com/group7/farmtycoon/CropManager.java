@@ -46,22 +46,22 @@ public class CropManager {
             for (HashMap.Entry<String, Crop> e : crops.entrySet()){
                 if(!e.tornadeSafe()){      //All crops except safe ones get killed randomly
                     int dmg  = rdm.nextInt(e.getValue().getQuantity()+1);   //random amount of crops dying if choosen to die
-                    sendLogMessage("The Tornado caused " + dmg +" " +e.getKey() + " to die");
+                    sendLogMessage("The tornado caused " + dmg +" " +e.getKey() + " to die");
                     e.getValue().destroy(dmg);
                 }
             }
         }
-        else if (Weather == Rain){
+        else if (Weather == rain){
              for (HashMap.Entry<String, Crop> e : crops.entrySet()){
                 e.getValue().water();
-                sendLogMessage("The Rain watered all the Crops");
+                sendLogMessage("The rain watered all the Crops");
              }
         }
-        else if( Weather ==Drought){
+        else if( Weather ==drought){
              for (HashMap.Entry<String, Crop> e : crops.entrySet()){
                 if(!e.droughtSafe()){
                     int dmg = rdm.nextInt(e.getValue().getLife()+1);
-                    endLogMessage("The Drought caused "+ e.getKey() + " to take damage.");
+                    endLogMessage("The drought caused "+ e.getKey() + " to take damage.");
                     e.getValue().takeDamage(dmg);
                 }
              }

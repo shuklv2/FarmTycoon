@@ -75,7 +75,7 @@ public class WeatherManager {
 
 //        currWeather.update();
 //        if(!currWeather.getState()){
-//            currentWeather = list.Sunny;
+//            currentWeather = list.sunny;
 //        }
     }
 }
