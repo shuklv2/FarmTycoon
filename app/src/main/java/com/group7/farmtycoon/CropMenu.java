@@ -19,7 +19,7 @@ public class CropMenu extends AppCompatActivity {
     }
 
     public void viewBtnPress(View v){
-        //CropManager.update();
+        CropManager.update();
         update();
     }
     public void waterBtnPress(View v){
