@@ -67,7 +67,7 @@ public class GameUpdater extends Thread{
     @Override
     public void run(){
         isRunning = true;
-
+        GameState.updateLog.add("New farm simulation started.");
         while(isRunning){
 
             //when the next day is reached
@@ -78,8 +78,8 @@ public class GameUpdater extends Thread{
             tickCount++;
             updateTime();
 
+            //Update log every second
             if ((tickCount%tickRate == 0)){
-               // GameState.updateLog.add("Test" + tickCount);
                 updateLog(currContext);
             }
 
@@ -97,11 +97,12 @@ public class GameUpdater extends Thread{
         gameState.updateAll();
     }
 
-    private void nextDay(){
+    public void nextDay(){
         //play whatever animation for ending day (fade screen to black)
         //or change any graphics indicating time of day, etc
         gameState.setDay(gameState.getDay() + 1);
         gameState.setTime(0.0);
+        tickCount = 0;
         update();
         GameState.updateLog.add("A new day has started");
         //fade back, indicate that the new day has started
@@ -117,8 +118,7 @@ public class GameUpdater extends Thread{
 
     //Calculates time of the day, returns in hours
     public void updateTime(){
-        int ticksToday = tickCount - dayCount*ticksPerDay;
-        gameState.setTime(((double)ticksToday/ticksPerDay - gameState.getDay() + 1)*24);
+        gameState.setTime(((double)tickCount/ticksPerDay)*24);
 
         currContext.runOnUiThread(new Runnable() {
             @Override

@@ -13,12 +13,14 @@ import android.widget.TextView;
 
 public class GameView extends AppCompatActivity {
 
+    GameUpdater gameUpdater;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_view);
 
-        GameUpdater gameUpdater = new GameUpdater(GameView.this);
+        gameUpdater = new GameUpdater(GameView.this);
         gameUpdater.start();
     }
 
@@ -43,6 +45,10 @@ public class GameView extends AppCompatActivity {
     public void weatherButtonPress(View v){
         Intent intent = new Intent(getApplicationContext(), WeatherMenu.class );
         startActivity(intent);
+    }
+
+    public void nextDayButtonPress(View v){
+        gameUpdater.nextDay();
     }
 
     public void updateLog(String newLog){
