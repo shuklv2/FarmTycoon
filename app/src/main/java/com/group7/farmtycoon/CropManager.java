@@ -17,7 +17,7 @@ public class CropManager {
     private static Potato potato;
     private static Strawberry strawberry;
 
-    private Random rdm = new Random();
+    private static Random rdm = new Random();
     //private ArrayList<Crop> crops;
 
     private static Map<String,Crop> crops;
@@ -40,32 +40,32 @@ public class CropManager {
     }
 
 
-    public static void update(){
+    public static void update(WeatherManager.list weather){
         Log.d("CropManager:Update","Updated!");
-       /* if(weather == tornado){
+        if(weather == WeatherManager.list.Tornado){
             for (HashMap.Entry<String, Crop> e : crops.entrySet()){
-                if(!e.tornadeSafe()){      //All crops except safe ones get killed randomly
+                if(!e.getValue().tornadoSafe()){      //All crops except safe ones get killed randomly
                     int dmg  = rdm.nextInt(e.getValue().getQuantity()+1);   //random amount of crops dying if choosen to die
                     sendLogMessage("The Tornado caused " + dmg +" " +e.getKey() + " to die");
                     e.getValue().destroy(dmg);
                 }
             }
         }
-        else if (Weather == Rain){
+        else if (weather == WeatherManager.list.Rain){
              for (HashMap.Entry<String, Crop> e : crops.entrySet()){
                 e.getValue().water();
                 sendLogMessage("The Rain watered all the Crops");
              }
         }
-        else if( Weather ==Drought){
+        else if( weather ==WeatherManager.list.Drought){
              for (HashMap.Entry<String, Crop> e : crops.entrySet()){
-                if(!e.droughtSafe()){
+                if(!e.getValue().droughtSafe()){
                     int dmg = rdm.nextInt(e.getValue().getLife()+1);
-                    endLogMessage("The Drought caused "+ e.getKey() + " to take damage.");
+                    sendLogMessage("The Drought caused "+ e.getKey() + " to take damage.");
                     e.getValue().takeDamage(dmg);
                 }
              }
-        }*/
+        }
 
         for (HashMap.Entry<String, Crop> e : crops.entrySet()){
             e.getValue().update();
