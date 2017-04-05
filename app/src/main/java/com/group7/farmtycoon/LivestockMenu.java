@@ -4,12 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LivestockMenu extends AppCompatActivity {
-
-
-   // private TextView cow = (TextView) findViewById(R.id.cowText);
-    //private TextView pig = (TextView) findViewById(R.id.pigText);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,47 +18,83 @@ public class LivestockMenu extends AppCompatActivity {
     }
 
     public void feedChickenPress(View v){
-        LivestockManager.feed(LivestockManager.getChicken());
+        if (LivestockManager.getChicken().getHunger() == 100){
+            Toast.makeText(this, "Chickens are already full!", Toast.LENGTH_LONG).show();
+        }else{
+            LivestockManager.feed(LivestockManager.getChicken());
+        }
         chickenText();
     }
 
     public void feedCowPress(View v){
-        LivestockManager.feed(LivestockManager.getCow());
+        if (LivestockManager.getCow().getHunger() == 100){
+            Toast.makeText(this, "Cows are already full!", Toast.LENGTH_LONG).show();
+        }else {
+            LivestockManager.feed(LivestockManager.getCow());
+        }
         cowText();
     }
 
     public void feedPigPress(View v){
-        LivestockManager.feed(LivestockManager.getPig());
+        if (LivestockManager.getPig().getHunger() == 100){
+            Toast.makeText(this, "Pigs are already full!", Toast.LENGTH_LONG).show();
+        }else {
+            LivestockManager.feed(LivestockManager.getPig());
+        }
         pigText();
     }
 
     public void butcherChickenPress(View v){
-        LivestockManager.butcher(LivestockManager.getChicken());
+        if (LivestockManager.getChicken().getQuantity() == 0){
+            Toast.makeText(this, "You can't butcher imaginary chickens!", Toast.LENGTH_LONG).show();
+        }else {
+            LivestockManager.butcher(LivestockManager.getChicken());
+        }
         chickenText();
     }
 
     public void butcherCowPress(View v){
-        LivestockManager.butcher(LivestockManager.getCow());
+        if (LivestockManager.getCow().getQuantity() == 0){
+            Toast.makeText(this, "You can't butcher imaginary cows!", Toast.LENGTH_LONG).show();
+        }else {
+            LivestockManager.butcher(LivestockManager.getCow());
+        }
         cowText();
     }
 
     public void butcherPigPress(View v){
-        LivestockManager.butcher(LivestockManager.getPig());
+        if (LivestockManager.getPig().getQuantity() == 0){
+            Toast.makeText(this, "You can't butcher imaginary pigs!", Toast.LENGTH_LONG).show();
+        }else {
+            LivestockManager.butcher(LivestockManager.getPig());
+        }
         pigText();
     }
 
     public void breedChicken(View v){
-        LivestockManager.breed(LivestockManager.getChicken());
+        if (LivestockManager.getChicken().getQuantity() == 1){
+            Toast.makeText(this, "You can't breed a lone chicken!", Toast.LENGTH_LONG).show();
+        }else {
+            LivestockManager.breed(LivestockManager.getChicken());
+        }
         chickenText();
     }
 
     public void breedCow(View v){
-        LivestockManager.breed(LivestockManager.getCow());
+        if (LivestockManager.getCow().getQuantity() == 1){
+            Toast.makeText(this, "You can't breed a lone cow!", Toast.LENGTH_LONG).show();
+        }else {
+            LivestockManager.breed(LivestockManager.getCow());
+        }
         cowText();
     }
 
     public void breedPig(View v){
-        LivestockManager.breed(LivestockManager.getPig());
+        if (LivestockManager.getPig().getQuantity() == 1){
+            Toast.makeText(this, "You can't breed a lone pig!", Toast.LENGTH_LONG).show();
+        }else {
+            LivestockManager.breed(LivestockManager.getPig());
+        }
         pigText();
     }
 
@@ -81,12 +114,20 @@ public class LivestockMenu extends AppCompatActivity {
     }
 
     public void eggsPress(View v){
-        LivestockManager.collectResources(LivestockManager.getChicken());
+        if (LivestockManager.getChicken().getEggs() == 0){
+            Toast.makeText(this, "There are no eggs to collect!", Toast.LENGTH_LONG).show();
+        }else {
+            LivestockManager.collectResources(LivestockManager.getChicken());
+        }
         chickenText();
     }
 
     public void milkPress(View v){
-        LivestockManager.collectResources(LivestockManager.getCow());
+        if (LivestockManager.getCow().getMilk() == 0){
+            Toast.makeText(this, "There is no milk to collect!", Toast.LENGTH_LONG).show();
+        }else {
+            LivestockManager.collectResources(LivestockManager.getCow());
+        }
         cowText();
     }
 

@@ -40,6 +40,10 @@ public class GameView extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), CropMenu.class );
         startActivity(intent);
     }
+    public void weatherButtonPress(View v){
+        Intent intent = new Intent(getApplicationContext(), WeatherMenu.class );
+        startActivity(intent);
+    }
 
 
 }
