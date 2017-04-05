@@ -22,6 +22,7 @@ public class LivestockMenu extends AppCompatActivity {
             Toast.makeText(this, "Chickens are already full!", Toast.LENGTH_LONG).show();
         }else{
             LivestockManager.feed(LivestockManager.getChicken());
+            GameState.updateLog.add("Chickens were fed.");
         }
         chickenText();
     }
@@ -31,6 +32,7 @@ public class LivestockMenu extends AppCompatActivity {
             Toast.makeText(this, "Cows are already full!", Toast.LENGTH_LONG).show();
         }else {
             LivestockManager.feed(LivestockManager.getCow());
+            GameState.updateLog.add("Cows were fed.");
         }
         cowText();
     }
@@ -40,6 +42,7 @@ public class LivestockMenu extends AppCompatActivity {
             Toast.makeText(this, "Pigs are already full!", Toast.LENGTH_LONG).show();
         }else {
             LivestockManager.feed(LivestockManager.getPig());
+            GameState.updateLog.add("Pigs were fed.");
         }
         pigText();
     }
@@ -49,6 +52,7 @@ public class LivestockMenu extends AppCompatActivity {
             Toast.makeText(this, "You can't butcher imaginary chickens!", Toast.LENGTH_LONG).show();
         }else {
             LivestockManager.butcher(LivestockManager.getChicken());
+            GameState.updateLog.add("A chicken was butchered.");
         }
         chickenText();
     }
@@ -58,6 +62,7 @@ public class LivestockMenu extends AppCompatActivity {
             Toast.makeText(this, "You can't butcher imaginary cows!", Toast.LENGTH_LONG).show();
         }else {
             LivestockManager.butcher(LivestockManager.getCow());
+            GameState.updateLog.add("A cow was butchered.");
         }
         cowText();
     }
@@ -67,6 +72,7 @@ public class LivestockMenu extends AppCompatActivity {
             Toast.makeText(this, "You can't butcher imaginary pigs!", Toast.LENGTH_LONG).show();
         }else {
             LivestockManager.butcher(LivestockManager.getPig());
+            GameState.updateLog.add("A pig was butchered.");
         }
         pigText();
     }
@@ -76,6 +82,7 @@ public class LivestockMenu extends AppCompatActivity {
             Toast.makeText(this, "You can't breed a lone chicken!", Toast.LENGTH_LONG).show();
         }else {
             LivestockManager.breed(LivestockManager.getChicken());
+            GameState.updateLog.add("Chickens were bred.");
         }
         chickenText();
     }
@@ -85,6 +92,8 @@ public class LivestockMenu extends AppCompatActivity {
             Toast.makeText(this, "You can't breed a lone cow!", Toast.LENGTH_LONG).show();
         }else {
             LivestockManager.breed(LivestockManager.getCow());
+            GameState.updateLog.add("Cows were bred.");
+
         }
         cowText();
     }
@@ -94,22 +103,26 @@ public class LivestockMenu extends AppCompatActivity {
             Toast.makeText(this, "You can't breed a lone pig!", Toast.LENGTH_LONG).show();
         }else {
             LivestockManager.breed(LivestockManager.getPig());
+            GameState.updateLog.add("Pigs were bred.");
         }
         pigText();
     }
 
     public void buyChicken(View v){
         LivestockManager.buy(LivestockManager.getChicken());
+        GameState.updateLog.add("A chicken was bought.");
         chickenText();
     }
 
     public void buyCow(View v){
         LivestockManager.buy(LivestockManager.getCow());
+        GameState.updateLog.add("A cow was bought.");
         cowText();
     }
 
     public void buyPig(View v){
         LivestockManager.buy(LivestockManager.getPig());
+        GameState.updateLog.add("A pig was bought.");
         pigText();
     }
 
@@ -118,6 +131,7 @@ public class LivestockMenu extends AppCompatActivity {
             Toast.makeText(this, "There are no eggs to collect!", Toast.LENGTH_LONG).show();
         }else {
             LivestockManager.collectResources(LivestockManager.getChicken());
+            GameState.updateLog.add("All chicken eggs were collected.");
         }
         chickenText();
     }
@@ -127,6 +141,7 @@ public class LivestockMenu extends AppCompatActivity {
             Toast.makeText(this, "There is no milk to collect!", Toast.LENGTH_LONG).show();
         }else {
             LivestockManager.collectResources(LivestockManager.getCow());
+            GameState.updateLog.add("All cow milk was collected.");
         }
         cowText();
     }

@@ -79,7 +79,7 @@ public class GameUpdater extends Thread{
             updateTime();
 
             if ((tickCount%tickRate == 0)){
-                GameState.updateLog.add("Test" + tickCount);
+               // GameState.updateLog.add("Test" + tickCount);
                 updateLog(currContext);
             }
 

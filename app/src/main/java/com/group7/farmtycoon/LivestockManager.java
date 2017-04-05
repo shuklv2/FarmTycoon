@@ -104,18 +104,21 @@ public class LivestockManager {
 
         if (cowQ > 1){
             cow.setQuantity(rand.nextInt(cowQ));
+            GameState.updateLog.add("A few cows were killed due to the Tornado.");
             if (cow.getQuantity()<1){
                 cow.setState(false);
             }
         }
         if(pigQ > 1){
             pig.setQuantity(rand.nextInt(pigQ));
+            GameState.updateLog.add("A few pigs were killed due to the Tornado.");
             if (pig.getQuantity()<1){
                 pig.setState(false);
             }
         }
         if(chickenQ > 1){
             chicken.setQuantity(rand.nextInt(chickenQ));
+            GameState.updateLog.add("A few chickens were killed due to the Tornado.");
             if (chicken.getQuantity()<1){
                 chicken.setState(false);
             }
@@ -123,7 +126,7 @@ public class LivestockManager {
 
     }
 
-    public void update() {
+    public void update(WeatherManager.list weather) {
         if (chicken.getQuantity() > 0){
             chicken.setState(true);
         }
@@ -175,10 +178,11 @@ public class LivestockManager {
             livestockTimer = 100;
         }
 
-        /*
-        if (weather == "Tornado"){
+
+        if (weather.equals(WeatherManager.list.Tornado)){
             tornadoEffect();
-        }*/
+
+        }
 
     }
 }
