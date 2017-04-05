@@ -20,8 +20,10 @@ public class GameView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_view);
 
-        gameUpdater = new GameUpdater(GameView.this);
-        gameUpdater.start();
+        if (gameUpdater == null) {
+            gameUpdater = new GameUpdater(GameView.this);
+            gameUpdater.start();
+        }
     }
 
     public void updateTime(double time){
