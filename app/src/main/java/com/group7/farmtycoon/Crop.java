@@ -75,18 +75,13 @@ public abstract class Crop {
             }
             //check if crop is harvestable
             //with fertilizer, grows twice as fast
-            if (life == HP) {
+            if (life == HP && !harvestable & !expired) {
                 harvestable = true;
+                expiryTimer=0;
             }
-
-            //checking if harvested crops should start expiring
-            if (harvestable) {
-                startExpiring = true;
-            }
-
 
             //expiring countdown
-            if (startExpiring) {
+            if (harvestable) {
                 expiryTimer++;
                 if (expiryTimer > expiryPeriod) {
                     expired = true;
@@ -110,6 +105,8 @@ public abstract class Crop {
     public void plant(int amount){
         if(amount >0){ alive=true;}
         quantity += amount;
+        expired =false;
+        watered=true;
         alreadydead=false;
 
     }
@@ -130,7 +127,7 @@ public abstract class Crop {
     public void destroy(int amount){
         quantity-= amount;
         //if all crops are killed die
-        if(quantity <= 0 && quantity != 0){
+        if(quantity <=0){
             alreadydead=true;
             expired=false;
             harvestable=false;

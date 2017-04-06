@@ -30,6 +30,7 @@ public class CropManager {
     //private CropView view;
 
     public static void init(){
+        Log.d("CropManager", "init again?");
         cm =new CropMenu();
         pumpkin = new Pumpkin();
         corn = new Corn();
