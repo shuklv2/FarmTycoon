@@ -86,6 +86,6 @@ public class WeatherManager {
 
         Log.d("WeatherManager",currentWeather.toString());
         override = false;
-
+        GameState.updateLog.add("The weather is " + currentWeather);
     }
 }
