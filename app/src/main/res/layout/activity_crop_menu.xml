@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="viewBtnPress"
-        android:text="View Status"
+        android:text="Refresh"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="94dp"
         app:layout_constraintRight_toLeftOf="@+id/harvestBtn"
@@ -148,16 +148,6 @@
         app:layout_constraintLeft_toRightOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/backBtn"
-        android:onClick="backBtnPress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="-27dp"
-        android:layout_marginLeft="-7dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/potatoHP"

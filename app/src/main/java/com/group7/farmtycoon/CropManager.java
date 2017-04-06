@@ -1,5 +1,6 @@
 package com.group7.farmtycoon;
 
+import android.content.Intent;
 import android.util.Log;
 
 import java.util.HashMap;
@@ -75,9 +76,10 @@ public class CropManager {
             e.getValue().update();
             if(e.getValue().expired()){
                 Log.d("CropManager",e.getKey() + " is expired, please clear");
-                sendLogMessage(e.getKey() + " is expired,please clear.");
+                sendLogMessage(e.getKey() + " is expired, please clear.");
             }
             if(!e.getValue().isAlive() && !e.getValue().alreadyDead() ){
+                e.getValue().setAlreadyDead(true);
                 Log.d("CropManager",e.getKey() + " has died.");
                 sendLogMessage(e.getKey() + " has died.");
             }

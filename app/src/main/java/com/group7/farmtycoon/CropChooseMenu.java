@@ -41,7 +41,9 @@ public class CropChooseMenu extends AppCompatActivity {
                 CropManager.destroyCrops(type,qty);
             }
             Intent intent = new Intent(getApplicationContext(), CropMenu.class );
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            finish();
         }
         else{
             Toast.makeText(this, "Please Enter Valid Quantity/ Choose Crop", Toast.LENGTH_LONG).show();

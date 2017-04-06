@@ -20,7 +20,6 @@ public class CropMenu extends AppCompatActivity {
     }
 
     public void viewBtnPress(View v){
-        CropManager.update(null);
         update();
     }
     public void waterBtnPress(View v){
@@ -47,10 +46,6 @@ public class CropMenu extends AppCompatActivity {
     public void clearBtnPress(View v){
         CropManager.setPlantOrKill(false);
         Intent intent = new Intent(getApplicationContext(), CropChooseMenu.class );
-        startActivity(intent);
-    }
-    public void backBtnPress(View v){
-        Intent intent = new Intent(getApplicationContext(), GameView.class );
         startActivity(intent);
     }
 

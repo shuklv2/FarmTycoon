@@ -128,7 +128,6 @@ public abstract class Crop {
         quantity-= amount;
         //if all crops are killed die
         if(quantity <=0){
-            alreadydead=true;
             expired=false;
             harvestable=false;
             watered=false;
@@ -175,4 +174,5 @@ public abstract class Crop {
     public boolean droughtSafe(){ return droughtSafe;}
 
     public boolean alreadyDead(){ return alreadydead;}
+    public void setAlreadyDead(boolean newState){alreadydead=newState;}
 }
