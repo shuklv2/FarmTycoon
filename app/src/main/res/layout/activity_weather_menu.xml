@@ -7,4 +7,81 @@
     tools:context="com.group7.farmtycoon.WeatherMenu"
     android:background="@drawable/farm">
 
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="backBtnPress"
+        android:text="Back"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="31dp" />
+
+    <Button
+        android:id="@+id/Rain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="rainPress"
+        android:text="Rain"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="99dp" />
+
+    <Button
+        android:id="@+id/Tornado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="tornadoPress"
+        android:text="Tornado"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="305dp" />
+
+    <Button
+        android:id="@+id/Drought"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="droughtPress"
+        android:text="Drought"
+        tools:layout_editor_absoluteX="218dp"
+        tools:layout_editor_absoluteY="305dp" />
+
+    <Button
+        android:id="@+id/Sunny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sunnyPress"
+        android:text="Sunny"
+        tools:layout_editor_absoluteX="226dp"
+        tools:layout_editor_absoluteY="99dp" />
+
+    <ImageView
+        android:id="@+id/Drought"
+        android:layout_width="119dp"
+        android:layout_height="124dp"
+        app:srcCompat="@drawable/drought"
+        tools:layout_editor_absoluteX="209dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp" />
+
+    <ImageView
+        android:id="@+id/Rain"
+        android:layout_width="134dp"
+        android:layout_height="127dp"
+        app:srcCompat="@drawable/rain"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="162dp" />
+
+    <ImageView
+        android:id="@+id/Tornado"
+        android:layout_width="127dp"
+        android:layout_height="119dp"
+        app:srcCompat="@drawable/tornado"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="365dp" />
+
+    <ImageView
+        android:id="@+id/Sunny"
+        android:layout_width="142dp"
+        android:layout_height="126dp"
+        app:srcCompat="@drawable/sunny"
+        tools:layout_editor_absoluteX="200dp"
+        tools:layout_editor_absoluteY="162dp" />
 </android.support.constraint.ConstraintLayout>
