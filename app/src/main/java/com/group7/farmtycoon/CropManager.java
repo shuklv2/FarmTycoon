@@ -66,9 +66,8 @@ public class CropManager {
         else if( weather ==WeatherManager.list.Drought){
              for (HashMap.Entry<String, Crop> e : crops.entrySet()){
                 if(!e.getValue().droughtSafe()){
-                    int dmg = rdm.nextInt(e.getValue().getLife()+1);
                     sendLogMessage("The Drought caused "+ e.getKey() + " to take damage.");
-                    e.getValue().takeDamage(dmg);
+                    e.getValue().dry();
                 }
              }
         }
