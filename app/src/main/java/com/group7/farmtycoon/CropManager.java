@@ -46,7 +46,7 @@ public class CropManager {
 
 
     public static void update(WeatherManager.list weather){
-        Log.d("CropManager:Update","Updated!");
+        Log.d("CropManager:Update",weather.toString());
         if(weather == WeatherManager.list.Tornado){
             for (HashMap.Entry<String, Crop> e : crops.entrySet()){
                 if(!e.getValue().tornadoSafe()){      //All crops except safe ones get killed randomly
@@ -82,6 +82,10 @@ public class CropManager {
                 e.getValue().setAlreadyDead(true);
                 Log.d("CropManager",e.getKey() + " has died.");
                 sendLogMessage(e.getKey() + " has died.");
+            }
+            if(e.getValue().isHarvestabled()){
+                Log.d("CropManager",e.getKey() + " is ready to harvest.");
+                sendLogMessage(e.getKey() + " is ready to harvest.");
             }
         }
         //cm.update();

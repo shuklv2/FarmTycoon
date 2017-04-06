@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+
 public class WeatherMenu extends AppCompatActivity {
 
     @Override
@@ -18,34 +19,32 @@ public class WeatherMenu extends AppCompatActivity {
 
 
     public void droughtPress(View v){
-        w.setWeatherState(WeatherManager.list.Drought);
+        WeatherManager.setWeatherState(WeatherManager.list.Drought);
         Toast.makeText(this, "Drought has been picked!", Toast.LENGTH_LONG).show();
         GameState.updateLog.add("The weather is drought!");
-        w.setOverride();
+        WeatherManager.setOverride();
     }
 
     public void rainPress(View v){
-        w.setWeatherState(WeatherManager.list.Rain);
+        WeatherManager.setWeatherState(WeatherManager.list.Rain);
         Toast.makeText(this, "Rain has been picked!", Toast.LENGTH_LONG).show();
         GameState.updateLog.add("The weather is rain!");
-        w.setOverride();
+        WeatherManager.setOverride();
     }
 
     public void tornadoPress(View v){
-        w.setWeatherState(WeatherManager.list.Tornado);
+        WeatherManager.setWeatherState(WeatherManager.list.Tornado);
         Toast.makeText(this, "Tornado has been picked!", Toast.LENGTH_LONG).show();
         GameState.updateLog.add("The weather is tornado!");
-        w.setOverride();
+        WeatherManager.setOverride();
     }
 
     public void sunnyPress(View v){
-        w.setWeatherState(WeatherManager.list.Sunny);
+        WeatherManager.setWeatherState(WeatherManager.list.Sunny);
         Toast.makeText(this, "Sunny has been picked!", Toast.LENGTH_LONG).show();
         GameState.updateLog.add("The weather is sunny!");
-        w.setOverride();
+        WeatherManager.setOverride();
     }
-
-    WeatherManager w = new WeatherManager();
 
     public void backBtnPress(View v){
         Intent intent = new Intent(getApplicationContext(), GameView.class );

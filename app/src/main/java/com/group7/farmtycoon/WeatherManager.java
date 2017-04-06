@@ -1,4 +1,6 @@
 package com.group7.farmtycoon;
+import android.util.Log;
+
 import java.util.Random;
 
 /**
@@ -6,47 +8,67 @@ import java.util.Random;
  */
 
 public class WeatherManager {
-    private Tornado tornado;
-    private Rain rain;
-    private Drought drought;
-    private Sunny sunny;
-    public boolean override = false;
+    private static Tornado tornado;
+    private static Rain rain;
+    private static Drought drought;
+    private static Sunny sunny;
+    private static boolean override;
 
-    public void setOverride(){
-        this.override = true;
-    }
 
-    private Weather currWeather;
+    private static Weather currWeather;
 
     public static enum list {
         Tornado, Rain, Drought, Sunny
     }
 
-    private list currentWeather;
-    public list getWeatherState(){ return currentWeather; }
+    private static list currentWeather;
+    public static list getWeatherState(){ return currentWeather; }
 
-    public WeatherManager(){
-        this.tornado = new Tornado();
-        this.rain = new Rain();
-        this.drought = new Drought();
-        this.sunny = new Sunny();
+    public static void init(){
+        tornado = new Tornado();
+        rain = new Rain();
+        drought = new Drought();
+        sunny = new Sunny();
         currentWeather = list.Sunny;
+        override=false;
     }
 
-    public int getWeatherDuration(Weather weather){
+    public static void setOverride(){
+        override = true;
+    }
+
+    public static int getWeatherDuration(Weather weather){
         return weather.getDuration();
     }
 
 
-    public void setWeatherDuration(Weather weather, int duration){
+    public static void setWeatherDuration(Weather weather, int duration){
         weather.setDuration(duration);
     }
 
-    public void setWeatherState(list weather){
+    public static void setWeatherState(list weather){
         currentWeather = weather;
     }
 
-    public void update() {
+    public static void update() {
+
+        Log.d("WeatherManager","Updated");
+        if (!override){
+            Log.d("Weathermanager","random");
+            double rdm = Math.random();
+            if (rdm < 0.25) {
+                currentWeather = list.Tornado;
+            }
+            else if (rdm < 0.5) {
+                currentWeather = list.Rain;
+            }
+            else if (rdm < 0.75) {
+                currentWeather = list.Drought;
+            }
+            else if (rdm < 1) {
+                currentWeather = list.Sunny;
+            }
+        }
         switch (currentWeather) {
             case Tornado:
                 currWeather =tornado;
@@ -62,28 +84,8 @@ public class WeatherManager {
                 break;
         }
 
-
-        if (override == false){
-            double rdm = Math.random();
-            if (rdm < 0.25) {
-                currentWeather = list.Tornado;
-            }
-            else if (rdm < 0.5) {
-                currentWeather = list.Rain;
-            }
-            else if (rdm < 0.75) {
-                currentWeather = list.Drought;
-            }
-            else if (rdm < 1) {
-                currentWeather = list.Sunny;
-            }
-        }
-
+        Log.d("WeatherManager",currentWeather.toString());
         override = false;
 
-//        currWeather.update();
-//        if(!currWeather.getState()){
-//            currentWeather = list.sunny;
-//        }
     }
 }

@@ -31,7 +31,7 @@ public class GameState {
         currTime = 0;
 
         livestockManager = new LivestockManager();
-        weatherManager = new WeatherManager();
+        WeatherManager.init();
         CropManager.init();
 
         updateLog = new ArrayList();
@@ -42,9 +42,10 @@ public class GameState {
     //**************************
 
     public void updateAll(){
+        WeatherManager.update();
         livestockManager.update(weatherManager.getWeatherState());
         CropManager.update(weatherManager.getWeatherState());
-        //weatherManager.update();
+
     }
 
     public List getLogs(){
