@@ -39,7 +39,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
                 android:layout_column="1"
-                android:text="Weather" />
+                android:text="Weather"
+                android:onClick="weatherButtonPress"/>
 
             <Button
                 android:id="@+id/livestockButton"
