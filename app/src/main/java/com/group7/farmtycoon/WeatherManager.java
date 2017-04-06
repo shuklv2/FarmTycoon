@@ -56,14 +56,14 @@ public class WeatherManager {
         if (!override){
             Log.d("Weathermanager","random");
             double rdm = Math.random();
-            if (rdm < 0.25) {
+            if (rdm < 0.1) {
                 currentWeather = list.Tornado;
+            }
+            else if (rdm < 0.2) {
+                currentWeather = list.Drought;
             }
             else if (rdm < 0.5) {
                 currentWeather = list.Rain;
-            }
-            else if (rdm < 0.75) {
-                currentWeather = list.Drought;
             }
             else if (rdm < 1) {
                 currentWeather = list.Sunny;
