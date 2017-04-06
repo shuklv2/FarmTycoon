@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class CropChooseMenu extends AppCompatActivity {
@@ -41,6 +42,9 @@ public class CropChooseMenu extends AppCompatActivity {
             }
             Intent intent = new Intent(getApplicationContext(), CropMenu.class );
             startActivity(intent);
+        }
+        else{
+            Toast.makeText(this, "Please Enter Valid Quantity/ Choose Crop", Toast.LENGTH_LONG).show();
         }
 
     }

@@ -22,12 +22,15 @@ public class CropManager {
 
     private static Map<String,Crop> crops;
 
+    private static CropMenu cm;
+
     private static boolean plantOrKill=true;   //if choosingplant is true, this determines if a crop is being chosen to be destroyed or planted
 
 
     //private CropView view;
 
     public static void init(){
+        cm =new CropMenu();
         pumpkin = new Pumpkin();
         corn = new Corn();
         potato = new Potato();
@@ -70,27 +73,25 @@ public class CropManager {
         for (HashMap.Entry<String, Crop> e : crops.entrySet()){
             e.getValue().update();
             if(e.getValue().expired()){
-                e.getValue().killAll();
-                Log.d("CropManager",e.getKey() + " is expired and has died.");
-                sendLogMessage(e.getKey() + " is expired and has died.");
+                Log.d("CropManager",e.getKey() + " is expired, please clear");
+                sendLogMessage(e.getKey() + " is expired,please clear.");
             }
-            if(e.getValue().getQuantity() <= 0){
+            if(!e.getValue().isAlive() && !e.getValue().alreadyDead() ){
                 Log.d("CropManager",e.getKey() + " has died.");
                 sendLogMessage(e.getKey() + " has died.");
             }
         }
-        //on update send view updates
-        //view.update(crops);
+        //cm.update();
     }
     //water all crops
     public static void waterCrops(){
         for (HashMap.Entry<String, Crop> e : crops.entrySet()){
-            if(e.getValue().getQuantity() >0){
+            if(e.getValue().isAlive() && !e.getValue().expired()){
                 e.getValue().water();
+                Log.d("CropManager",e.getKey() + " has been watered.");
+                sendLogMessage(e.getKey()  + " has been watered.");
             }
-            //view.update(crops);
-            Log.d("CropManager",e.getKey() + " has been watered.");
-            sendLogMessage(e.getKey()  + " has been watered.");
+
 
         }
     }
@@ -99,8 +100,6 @@ public class CropManager {
     public static void harvestCrops(){
         for (HashMap.Entry<String, Crop> e : crops.entrySet()){
             if(e.getValue().isHarvestabled()){
-
-                //view.update(crops);
                 Log.d("CropManager",e.getValue().getQuantity() + " " + e.getKey()  + " has just been harvested.");
                 sendLogMessage(e.getValue().getQuantity() + " " + e.getKey()  + " has just been harvested.");
                 e.getValue().harvest();
@@ -112,7 +111,6 @@ public class CropManager {
     public static void clearAll(){
         for (HashMap.Entry<String, Crop> e : crops.entrySet()){
             e.getValue().killAll();
-            //view.update(crops);
             sendLogMessage("All Crops cleared.");
         }
     }
@@ -120,7 +118,6 @@ public class CropManager {
     //clear only certain type of crop
     public void clearCrop(String type){
         crops.get(type).killAll();
-        //view.update(crops);
         Log.d("CropManager",type + " has been cleared");
         sendLogMessage(type + " has been cleared");
 
@@ -129,13 +126,11 @@ public class CropManager {
     //plant certain type of crop amount many times
     public static void plantCrops(String type, int amount){
         crops.get(type).plant(amount);
-        //view.update(crops);
         Log.d("CropManager",amount + " " + type + " has been planted");
         sendLogMessage(amount + " " + type + " has been planted");
     }
 
     public static void fertilizeCrop(String type){
-
         crops.get(type).fertilize();
         Log.d("CropManager", type+" has been fertilized");
     }
@@ -143,20 +138,15 @@ public class CropManager {
     //destroy certain amount of crops
     public static void destroyCrops(String type, int amount){
         crops.get(type).destroy(amount);
-        //view.update(crops);
         Log.d("CropManager",amount + " " + type + " has been killed");
         sendLogMessage(amount + " " + type + " has been killed");
     }
 
     //used to send log messages
     private static void sendLogMessage(String msg){
-        //gamestate.addMessage(msg)
+        GameState.updateLog.add(msg);
     }
 
-    //called when plant or clear is called
-    public static void updateView(){
-        //view.updateInterface();
-    }
 
     public static Crop getCrop(String type){
         return crops.get(type);
@@ -166,4 +156,12 @@ public class CropManager {
     public static void setPlantOrKill(boolean status){ plantOrKill =status;}
 
     public static boolean plantOrKill(){ return plantOrKill; }
+
+    public static boolean harvestableCrops(){
+        boolean y= false;
+        for (HashMap.Entry<String, Crop> e : crops.entrySet()){
+            y |= e.getValue().isHarvestabled();
+        }
+        return y;
+    }
 }

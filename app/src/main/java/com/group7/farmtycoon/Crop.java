@@ -22,7 +22,7 @@ public abstract class Crop {
 
 
     //no water period
-    protected int noWaterPeriod;
+    protected int noWaterPeriod=3;
     private int noWaterTimer=0;
     private boolean startNoWater=false;
     private boolean noWater=false;
@@ -31,46 +31,51 @@ public abstract class Crop {
     private int quantity=10;
 
     //if the crop was just watered (should refresh expiryPeriod)
-    private boolean watered;
+    private boolean watered=true;
 
     //if crop can be harvested
     private boolean harvestable;
 
+    private boolean alreadydead=false;
 
     private boolean fertilized=false;
 
     protected boolean tornadoSafe=false;
     protected boolean droughtSafe= false;
 
+    private boolean alive=true;
+
     //basic update model of crops
     public void update(){
         //check if plant was water
-        if(quantity>0) {
+        if(quantity>0 && alive && !expired) {
             if (watered) {
-                //turn off water
-                watered = false;
-                //reset no water
-                noWater = false;
-                noWaterTimer = 0;
-            } else {
                 noWaterTimer++;
-                if (noWaterTimer >= noWaterPeriod) {
-                    noWater = true;
+                if (noWaterTimer > noWaterPeriod) {
+                    watered = false;
+                    noWaterTimer = 0;
                 }
             }
+            if(!harvestable) {
+                if (!watered) {
+                    takeDamage(starveDMG);
+                } else {
+                    if(fertilized){
+                        life +=2;
+                    }
+                    else{
+                        life += 1;
+                    }
 
-            if (noWater) {
-                takeDamage(starveDMG);
-            } else {
-                life += 1;
-                //cant go over HP amount
-                if (life > HP) {
-                    life = HP;
+                    //cant go over HP amount
+                    if (life > HP) {
+                        life = HP;
+                    }
                 }
             }
             //check if crop is harvestable
             //with fertilizer, grows twice as fast
-            if (life == HP || (fertilized && life == HP / 2)) {
+            if (life == HP) {
                 harvestable = true;
             }
 
@@ -83,8 +88,9 @@ public abstract class Crop {
             //expiring countdown
             if (startExpiring) {
                 expiryTimer++;
-                if (expiryTimer >= expiryPeriod) {
+                if (expiryTimer > expiryPeriod) {
                     expired = true;
+                    harvestable=false;
                     expiryTimer = 0;
                 }
             }
@@ -93,22 +99,32 @@ public abstract class Crop {
 
     //watering crops
     public void water(){
-        watered=true;
+        Log.d("Crop", "watered");
+        if(quantity >0){
+            watered=true;
+            noWaterTimer=0;
+        }
+
     }
 
     //plant  new crops
     public void plant(int amount){
+        if(amount >0){ alive=true;}
+        Log.d("Crop", "Planted");
         quantity += amount;
-        life=HP;
+        alreadydead=false;
+
     }
 
     //harvest the crops
     public void harvest(){
+        Log.d("Crop", "harvest");
         quantity = 0;
         life=0;
         watered=false;
         harvestable=false;
         fertilized=false;
+        alreadydead=false;
     }
 
     public void fertilize(){ fertilized =true;}
@@ -117,11 +133,14 @@ public abstract class Crop {
     public void destroy(int amount){
         quantity-= amount;
         //if all crops are killed die
-        if(quantity <= 0){
+        if(quantity <= 0 && quantity != 0){
+            alreadydead=true;
+            expired=false;
             harvestable=false;
             watered=false;
             quantity =0;
             fertilized =false;
+            alive=false;
         }
         life = 0;
 
@@ -153,9 +172,13 @@ public abstract class Crop {
 
     public boolean isHarvestabled(){ return harvestable;}
 
+    public boolean isAlive(){ return alive;}
+
     public boolean expired(){return expired; }
 
     public boolean tornadoSafe(){ return tornadoSafe;}
 
     public boolean droughtSafe(){ return droughtSafe;}
+
+    public boolean alreadyDead(){ return alreadydead;}
 }
