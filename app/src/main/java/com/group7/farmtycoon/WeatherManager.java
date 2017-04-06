@@ -10,6 +10,11 @@ public class WeatherManager {
     private Rain rain;
     private Drought drought;
     private Sunny sunny;
+    public boolean override = false;
+
+    public void setOverride(){
+        this.override = true;
+    }
 
     private Weather currWeather;
 
@@ -58,20 +63,23 @@ public class WeatherManager {
         }
 
 
-        double rdm = Math.random();
-        if(rdm <0.25){
-            currentWeather = list.Tornado;
-        }
-        else if (rdm <0.5){
-            currentWeather = list.Rain;
-        }
-        else if(rdm<0.75){
-            currentWeather = list.Drought;
-        }
-        else  if(rdm <1){
-            currentWeather = list.Sunny;
+        if (override == false){
+            double rdm = Math.random();
+            if (rdm < 0.25) {
+                currentWeather = list.Tornado;
+            }
+            else if (rdm < 0.5) {
+                currentWeather = list.Rain;
+            }
+            else if (rdm < 0.75) {
+                currentWeather = list.Drought;
+            }
+            else if (rdm < 1) {
+                currentWeather = list.Sunny;
+            }
         }
 
+        override = false;
 
 //        currWeather.update();
 //        if(!currWeather.getState()){
