@@ -81,7 +81,7 @@
         android:layout_marginTop="28dp"
         android:clickable="false"
         android:contextClickable="false"
-        android:maxHeight="330dp"
+        android:maxHeight="300dp"
         android:scrollbars="vertical"
         android:singleLine="false"
         android:textAlignment="center"
