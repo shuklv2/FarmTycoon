@@ -25,6 +25,7 @@ public class WeatherManager {
         this.rain = new Rain();
         this.drought = new Drought();
         this.sunny = new Sunny();
+        currentWeather = list.Sunny;
     }
 
     public int getWeatherDuration(Weather weather){
