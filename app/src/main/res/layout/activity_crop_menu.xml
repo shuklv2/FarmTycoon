@@ -83,9 +83,9 @@
         android:layout_width="68dp"
         android:layout_height="70dp"
         app:srcCompat="@drawable/potato"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="38dp"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="24dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <ImageView
@@ -93,10 +93,10 @@
         android:layout_width="67dp"
         android:layout_height="60dp"
         app:srcCompat="@drawable/strawberry"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="51dp"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
         app:layout_constraintLeft_toRightOf="@+id/imageView2"
-        android:layout_marginLeft="93dp" />
+        android:layout_marginLeft="68dp" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -122,18 +122,18 @@
         android:id="@+id/strawberryQty"
         android:layout_width="57dp"
         android:layout_height="22dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="190dp"
         android:text="111"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/imageView3"
-        android:layout_marginLeft="4dp" />
+        android:layout_marginLeft="-3dp" />
 
     <TextView
         android:id="@+id/potatoQty"
         android:layout_width="57dp"
         android:layout_height="22dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginLeft="-19dp"
+        android:layout_marginTop="190dp"
         android:text="111"
         app:layout_constraintLeft_toRightOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -165,8 +165,8 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintLeft_toRightOf="@+id/imageView2"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="-8dp"
+        android:layout_marginTop="-9dp"
         app:layout_constraintTop_toBottomOf="@+id/potatoQty" />
 
     <TextView
@@ -175,19 +175,59 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintLeft_toRightOf="@+id/imageView3"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="7dp"
         app:layout_constraintTop_toBottomOf="@+id/pumpkinQty" />
 
     <TextView
         android:id="@+id/strawberryHP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:text="TextView"
-        app:layout_constraintLeft_toRightOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/strawberryQty" />
+        app:layout_constraintTop_toBottomOf="@+id/strawberryQty"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/strawberryQty" />
+
+    <TextView
+        android:id="@+id/pumpkinStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginLeft="185dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <TextView
+        android:id="@+id/potatoStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:layout_marginLeft="32dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/strawStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="176dp"
+        android:text="TextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/cornStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="0dp"
+        android:text="TextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/cornHP"

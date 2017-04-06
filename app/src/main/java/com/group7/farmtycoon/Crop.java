@@ -99,7 +99,6 @@ public abstract class Crop {
 
     //watering crops
     public void water(){
-        Log.d("Crop", "watered");
         if(quantity >0){
             watered=true;
             noWaterTimer=0;
@@ -110,7 +109,6 @@ public abstract class Crop {
     //plant  new crops
     public void plant(int amount){
         if(amount >0){ alive=true;}
-        Log.d("Crop", "Planted");
         quantity += amount;
         alreadydead=false;
 
@@ -118,7 +116,6 @@ public abstract class Crop {
 
     //harvest the crops
     public void harvest(){
-        Log.d("Crop", "harvest");
         quantity = 0;
         life=0;
         watered=false;
