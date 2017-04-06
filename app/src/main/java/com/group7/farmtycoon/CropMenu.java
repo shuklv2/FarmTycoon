@@ -99,11 +99,11 @@ public class CropMenu extends AppCompatActivity {
         }
         else if(cornExpired){
             cornStatus.setText("EXPIRED");
-            cornStatus.setTextColor(Color.YELLOW);
+            cornStatus.setTextColor(Color.GRAY);
         }
         else if(cornHarvest){
             cornStatus.setText("READY");
-            cornStatus.setTextColor(Color.GREEN);
+            cornStatus.setTextColor(Color.WHITE);
         }
         else if(cornWatered && !cornHarvest){
             cornStatus.setText("WATERED");
@@ -120,11 +120,11 @@ public class CropMenu extends AppCompatActivity {
         }
         else if(strawExpired){
             strawStatus.setText("EXPIRED");
-            strawStatus.setTextColor(Color.YELLOW);
+            strawStatus.setTextColor(Color.GRAY);
         }
         else if(strawHarvest){
             strawStatus.setText("READY");
-            strawStatus.setTextColor(Color.GREEN);
+            strawStatus.setTextColor(Color.rgb(51,102,0));
         }
         else if(strawWatered){
             strawStatus.setText("WATERED");
@@ -141,11 +141,11 @@ public class CropMenu extends AppCompatActivity {
         }
         else if(potatoExpired){
             potatoStatus.setText("EXPIRED");
-            potatoStatus.setTextColor(Color.YELLOW);
+            potatoStatus.setTextColor(Color.GRAY);
         }
         else if(potatoHarvest){
             potatoStatus.setText("READY");
-            potatoStatus.setTextColor(Color.GREEN);
+            potatoStatus.setTextColor(Color.WHITE);
         }
         else if(potatoWatered){
             potatoStatus.setText("WATERED");
@@ -162,11 +162,11 @@ public class CropMenu extends AppCompatActivity {
         }
         else if(pumpkinExpired){
             pumpkinStatus.setText("EXPIRED");
-            pumpkinStatus.setTextColor(Color.YELLOW);
+            pumpkinStatus.setTextColor(Color.GRAY);
         }
         else if(pumpkinHarvest){
             pumpkinStatus.setText("READY");
-            pumpkinStatus.setTextColor(Color.GREEN);
+            pumpkinStatus.setTextColor(Color.WHITE);
         }
         else if(pumpkinWatered){
             pumpkinStatus.setText("WATERED");

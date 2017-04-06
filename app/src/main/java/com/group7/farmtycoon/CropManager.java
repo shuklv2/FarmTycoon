@@ -59,8 +59,9 @@ public class CropManager {
         else if (weather == WeatherManager.list.Rain){
              for (HashMap.Entry<String, Crop> e : crops.entrySet()){
                 e.getValue().water();
-                sendLogMessage("The Rain watered all the Crops");
+
              }
+             sendLogMessage("The Rain watered all the Crops");
         }
         else if( weather ==WeatherManager.list.Drought){
              for (HashMap.Entry<String, Crop> e : crops.entrySet()){
