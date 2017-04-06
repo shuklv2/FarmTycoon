@@ -55,7 +55,6 @@ public class WeatherManager {
             case Sunny:
                 currWeather =sunny;
                 break;
-
         }
 
 
