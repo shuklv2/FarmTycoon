@@ -76,22 +76,25 @@ public class LivestockManager {
         Random rand = new Random();
 
         if (cowQ > 1){
-            cow.setQuantity(rand.nextInt(cowQ));
-            GameState.updateLog.add("A few cows were killed due to the Tornado.");
+            int num = rand.nextInt(cowQ);
+            cow.setQuantity(cow.getQuantity()-num);
+            GameState.updateLog.add(num+" cow(s) were killed due to the Tornado.");
             if (cow.getQuantity()<1){
                 cow.setState(false);
             }
         }
         if(pigQ > 1){
-            pig.setQuantity(rand.nextInt(pigQ));
-            GameState.updateLog.add("A few pigs were killed due to the Tornado.");
+            int num = rand.nextInt(pigQ);
+            pig.setQuantity(pig.getQuantity()-num);
+            GameState.updateLog.add(num+" pig(s) were killed due to the Tornado.");
             if (pig.getQuantity()<1){
                 pig.setState(false);
             }
         }
         if(chickenQ > 1){
-            chicken.setQuantity(rand.nextInt(chickenQ));
-            GameState.updateLog.add("A few chickens were killed due to the Tornado.");
+            int num = rand.nextInt(chickenQ);
+            chicken.setQuantity(chicken.getQuantity()-num);
+            GameState.updateLog.add(num + " chicken(s) were killed due to the Tornado.");
             if (chicken.getQuantity()<1){
                 chicken.setState(false);
             }
