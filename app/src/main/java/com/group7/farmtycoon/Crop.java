@@ -163,6 +163,8 @@ public abstract class Crop {
 
     public boolean isWatered(){ return watered;}
 
+    public void dry() { watered=false;}
+
     public boolean isHarvestabled(){ return harvestable;}
 
     public boolean isAlive(){ return alive;}
